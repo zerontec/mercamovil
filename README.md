@@ -2,11 +2,8 @@
 
 A Shopping Website build with Angular 4 and Firebase.
 
-
-## Demo Link :
-
-- Live Demo: https://oshop-ritwick.firebaseapp.com/ 
-
+-Make several changes by making the frontend part more visible with several components
+-also add user image visibility
 
 ## Features
 
