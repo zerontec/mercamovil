@@ -1,0 +1,66 @@
+<form #checkOutForm="ngForm" (ngSubmit)="save(checkOutForm.value)" novalidate>
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" name="name" ngModel #name="ngModel" for="name" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        El nombre es Requerido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="addressLine1">Direccion linea 1</label>
+      <input type="text" name="addressLine1" ngModel #addressLine1="ngModel" for="addressLine1" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+       Linea 1 de Direccion es Requerida
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="addressLine2">Direccion Linea 2</label>
+      <input type="text" name="addressLine2" ngModel #addressLine2="ngModel" for="addressLine2" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
+        Linea 2 de Direccion es Requerida
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city">Sector</label>
+      <input type="text" name="city" ngModel #city="ngModel" for="city" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+        Sector es Requerido
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="ndt">Nro telefonico</label>
+        <input type="number" name="ndt" ngModel #ndt="ngModel" for="ndt" class="form-control" required placeholder="Nro de Telefono ">
+        <div class="alert alert-danger" *ngIf="ndt.touched && ndt.invalid">
+          Nro de telefono es Requerido 
+        </div>
+      </div>
+
+    <h2>Datos de pago</h2>
+    <div class="form-group">
+      <label for="bank">Banco</label>
+      <input type="text" name="bank" ngModel #bank="ngModel" for="bank" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="bank.touched && bank.invalid">
+        El Banco es Requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ndr">Nro de Referencia </label>
+      <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input  ngModel #ndr="ngModel" name="ndr" type="number" class="form-control" id="ndr" required [min]="4" placeholder="Ultimos 4 Numeros ">
+  
+        </div>
+        <div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
+            <div *ngIf="ndr.errors.required">Nro de Referencia es Requerido .</div>
+            <div *ngIf="ndr.errors.min"> deberian ser los ultimos 4 digitos.</div>
+          </div>
+    </div>
+    
+    <div class="form-group">
+      <button class="btn btn-primary" [disabled]="checkOutForm.invalid || disableBtn">Ejecutar Orden</button>
+    </div>
+
+  </form>

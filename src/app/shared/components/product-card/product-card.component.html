@@ -1,0 +1,48 @@
+
+
+                 
+             
+
+        
+
+
+
+<div class="col-md-9">
+
+  <div class="row no-gutters">                
+
+
+<div class="product" >
+
+
+    <div class="product-header">
+        <span class="badge badge-success">50% OFF</span>
+      
+        <span class="veg text-success mdi mdi-circle"></span>
+     </div>
+
+  <img *ngIf="product.imageUrl" class="img-fluid mb-3"  [src]="product.imageUrl" [alt]="product.title">
+  <div class="product-body">
+    <h5>{{product.title}}</h5>
+    <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+    <p class="offer-price mb-0"> {{product.price | currency:'INR':true}} <span class="regular-price">$800.99</span></p>
+  </div>
+  <div *ngIf="showActions && shoppingCart" class="product-footer">
+    <button *ngIf="!shoppingCart.itemsMap || shoppingCart?.getQty(product) === 0; else updateQty" (click)="addToCart()"type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i>Add to Cart</button>
+    <ng-template #updateQty>
+      <product-quantity [product]="product" [shopping-cart]="shoppingCart"></product-quantity>
+    </ng-template>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+

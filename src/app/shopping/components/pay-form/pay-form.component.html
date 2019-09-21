@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #payForm="ngForm" (ngSubmit)="save(payForm.value)" novalidate>
+      <div class="form-group">
+        <label for="bank">Banco al que Realizo la Transferencia</label>
+        <input #bank="ngModel" [(ngModel)]="pay.bank" name="bank" type="text" class="form-control" id="bank" required>
+        <div class="alert alert-danger" *ngIf="bank.touched && bank.invalid">
+         Banco es Requerido
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="idc">id de la Compra </label>
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input #idc="ngModel" [(ngModel)]="pay.idc" name="idc" type="text" class="form-control" id="idc" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="idc.touched && idc.invalid">
+          <div *ngIf="idc.errors.required">ID Compra es Requerido .</div>
+          <div *ngIf="idc.errors.min">Id deberian ser los ultimos 4 digitos.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="idu">id Usuario </label>
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input #idu="ngModel" [(ngModel)]="pay.idu" name="idu" type="number" class="form-control" id="idu" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="idu.touched && idu.invalid">
+          <div *ngIf="idu.errors.required">Id Usuario es Requerido .</div>
+          <div *ngIf="idu.errors.min">Id Usuario deberian ser los ultimos 4 digitos.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="idc">Nro de Referencia </label>
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input #ndr="ngModel" [(ngModel)]="pay.ndr" name="ndr" type="number" class="form-control" id="ndr" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="idc.touched && idc.invalid">
+          <div *ngIf="ndr.errors.required">Nro de Referencia es Requerido .</div>
+          <div *ngIf="ndr.errors.min">Id deberian ser los ultimos 4 digitos.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="idu">Monto de la Transferencia  </label>
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input #price="ngModel" [(ngModel)]="pay.price" name="price" type="number" class="form-control" id="price" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+          <div *ngIf="price.errors.required">Monto es Requerido .</div>
+          <div *ngIf="price.errors.min">Monto deberian ser mayor a 0.</div>
+        </div>
+      </div>
+      
+
+     
+
+      
+     <div class="form-group">
+        <button class="btn btn-primary" [disabled]="payForm.invalid">Salvar</button>
+        <button type="button" (click)="delete()" class="btn btn-danger" *ngIf="id">Borrar</button>
+     </div>
+
+    </form>
+  </div>
+  
+</div>

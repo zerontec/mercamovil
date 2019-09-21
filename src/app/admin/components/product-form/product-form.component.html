@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #productForm="ngForm" (ngSubmit)="save(productForm.value)" novalidate>
+      <div class="form-group">
+        <label for="title">Titulo</label>
+        <input #title="ngModel" [(ngModel)]="product.title" name="title" type="text" class="form-control" id="title" required>
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+          Titulo es Requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Precio</label>
+        <div class="input-group">
+          <span class="input-group-addon">Bs</span>
+          <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" class="form-control" id="price" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+          <div *ngIf="price.errors.required">Pricio es requerido.</div>
+          <div *ngIf="price.errors.min">Precio deberia ser mayor a cero.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Categoria</label>
+        <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+          <option></option>
+          <option *ngFor="let c of categories$ | async" [value]="c.$key">
+            {{c.name}}
+          </option>
+        </select>
+        <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+          La Categoria es Requerida
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">URL de la Imagen</label>
+        <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" type="text" class="form-control" id="imageUrl" required url>
+        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+          <div *ngIf="imageUrl.errors.required">La Imagen es Requerida</div>
+          <div *ngIf="imageUrl.errors.url">URL Invalida </div>
+        </div>
+      </div>
+
+     <div class="form-group">
+        <button class="btn btn-primary" [disabled]="productForm.invalid">Salvar</button>
+        <button type="button" (click)="delete()" class="btn btn-danger" *ngIf="id">Borrar</button>
+     </div>
+
+    </form>
+  </div>
+  <div class="col-md-6" *ngIf="product.title || product.imageUrl">
+    <product-card [product]="product" [width]="22" [show-actions]="false"></product-card>
+  </div>
+</div>

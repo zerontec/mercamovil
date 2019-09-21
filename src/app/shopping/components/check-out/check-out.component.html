@@ -1,0 +1,43 @@
+<h1>Datos para Envios </h1>
+
+<ng-container *ngIf="cart$ | async as cart">
+  <ng-container *ngIf="cart.totalItemCount > 0; else noCart">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <shipping-form [cart]='cart'></shipping-form>
+      </div>
+      
+      <div class="col-md-6 col-sm-12">
+        <shopping-cart-summary [cart]='cart'></shopping-cart-summary>
+<hr>
+        <div class="card">
+            <div class="card-body">
+              <h4 class="card-title " >Datos de Cuentas para pagos</h4>
+              <p class="card-text"><strong> </strong></p>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngFor="let item of cart.items">
+                      <strong>Grupo c-137 rif j317513347</strong>
+                       
+                     </li>
+                <li class="list-group-item" *ngFor="let item of cart.items">
+                 <strong> Banco de Venezuela Cta Corriente 0102 00 84578 93848 876543</strong>
+                  
+                </li>
+                <li class="list-group-item" *ngFor="let item of cart.items">
+                    <strong> Banco de Venezuela Cta Corriente 0102 00 84578 93848 876543</strong>
+                     
+                   </li>
+        
+               
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noCart>
+    <p>No tienes ningun Producto en el Carrito</p>
+  </ng-template>
+
+</ng-container>

@@ -1,0 +1,39 @@
+
+ <section class="shop-list section-padding">
+    <a href="#"><img class="img-fluid mb-3" src="http://askbootstrap.com/preview/osahan-grocery-v1-3/img/shop.jpg" alt=""></a>
+    <div class="shop-head">
+       <a href="#"><span class="mdi mdi-home"></span> Home</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits & Vegetables</a> <span class="mdi mdi-chevron-right"></span> <a href="#">Fruits</a>
+       <div class="btn-group float-right mt-2">
+          <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort by Products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+             <a class="dropdown-item" href="#">Relevance</a>
+             <a class="dropdown-item" href="#">Price (Low to High)</a>
+             <a class="dropdown-item" href="#">Price (High to Low)</a>
+             <a class="dropdown-item" href="#">Discount (High to Low)</a>
+             <a class="dropdown-item" href="#">Name (A to Z)</a>
+          </div>
+       </div>
+       <h5 class="mb-3">Fruits</h5>
+    </div>
+<!--categorias-->
+<div class="row">
+  <div class="col-md-3 col-sm-12">
+    <product-filter [selectedCategory]="category"></product-filter>
+  </div>
+
+
+  <div class="col-md-9 col-sm-12">
+    <div class="row" *ngIf="cart$ | async as cart">
+      <ng-container *ngFor="let product of filteredProducts; let i = index">
+        <div class="col">
+          <product-card [product]="product" [width]="20" [shopping-cart]="cart"></product-card>
+        </div>
+        <div class="w-100" *ngIf="(i+1)%2 === 0"></div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+ </section>

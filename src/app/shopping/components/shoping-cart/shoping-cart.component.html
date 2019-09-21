@@ -1,0 +1,87 @@
+
+
+ <section class="pt-3 pb-3 page-info section-padding border-bottom bg-white">
+  <div class="container">
+     <div class="row">
+        <div class="col-md-12">
+           <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Cart</a>
+        </div>
+     </div>
+  </div>
+</section>
+<h1>Mercado Movil</h1>
+<ng-container *ngIf="(cart$ | async) as cart;">
+  <ng-container *ngIf="cart.totalItemCount > 0; else noCart">
+      <p>Tienes {{cart.totalItemCount}} Productos en tu Carrito de Compras
+          <button class="btn btn-light btn-sm float-right" (click)="clearAll()"><strong>Vaciar Carrito</strong>
+             </button>
+        </p>
+      <section class="cart-page section-padding">
+          <div class="container">
+             <div class="row">
+                <div class="col-md-12">
+                   <div class="card card-body cart-table">
+                      <div class="table-responsive">
+                         <table class="table cart_summary">
+                            <thead>
+                               <tr>
+                                  <th class="cart_product">Productos</th>
+                                  <th>Descripcion</th>
+                                  <th>Estado</th>
+                                  <th>Precio unitarios</th>
+                                  <th>Cantidad</th>
+                                  <th>Total</th>
+                                  <th class="action"><i class="mdi mdi-delete-forever"></i></th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr *ngFor="let item of cart.items">
+                                  <td class="cart_product"><a href="#"><div class="thumbnail" [style.backgroundImage]="'url('+ item.imageUrl +')'" alt=""></div></a></td>
+                                  <td class="cart_description">
+                                     <h5 class="product-name"><a href="#">{{item.title}} </a></h5>
+                                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                                  </td>
+                                  <td class="availability in-stock"><span class="badge badge-success">In stock</span></td>
+                                  <td class="price"><span>{{item.price}}</span></td>
+                                  <td class="qty">
+                                     
+                                        <product-quantity [product]="item" [shopping-cart]="cart" [msg]="null"></product-quantity>
+                                     
+                                  </td>
+                                  <td class="price"><span>{{item.totalPrice | currency:'INR':true}}</span></td>
+                                  <td class="action">
+                                     <a class="btn btn-sm btn-danger" data-original-title="Remove" href="#" title="" data-placement="top" data-toggle="tooltip"><i class="mdi mdi-close-circle-outline"></i></a>
+                                  </td>
+                               </tr>
+                               
+                            </tbody>
+                            <tfoot>
+                              
+                               
+                               <tr>
+                                  <td class="text-right" colspan="5"><strong>Total</strong></td>
+                                  <td class="text-danger" colspan="2"><strong>{{cart.totalPrice | currency:'INR':true}}</strong></td>
+                               </tr>
+                            </tfoot>
+                         </table>
+                      </div>
+                      <a [routerLink]="['/checkout']"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Ir a Pagar  </span><span class="float-right"><strong>{{cart.totalPrice | currency:'INR':true}}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
+                   </div>
+                   
+                </div>
+             </div>
+          </div>
+       </section>
+
+
+    
+
+  </ng-container>
+
+</ng-container>
+
+
+
+<ng-template #noCart>
+  <h2>No tienes Productos en el Carrito de Compras</h2>
+</ng-template>

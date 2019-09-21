@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>C137</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Icons -->
+      <link href="./assets/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+      <!-- Select2 CSS -->
+      <link href="./assets/css/select2-bootstrap.css" />
+      <link href="./assets/css/select2.min.css" rel="stylesheet" />
+      <!-- Custom styles for this template -->
+      <link href="./assets/css/osahan.min.css" rel="stylesheet">
+      <!-- Owl Carousel -->
+      <link rel="stylesheet" href="./assets/css/owl.carousel.css">
+      <link rel="stylesheet" href="./assets/css/owl.theme.css">
+</head>
+
+<body>
+  <app-root>
+    <div>
+      <!--This Loader HTML+CSS taken from https://codepen.io/pedox/pen/PwQezw -->
+      <style>
+        .loading-bro {
+          margin: 50px auto;
+          width: 150px;
+        }
+
+        #load {
+          width: 150px;
+          animation: loading 2s linear infinite;
+        }
+
+        #load #loading-inner {
+          stroke-dashoffset: 0;
+          stroke-dasharray: 300;
+          stroke-width: 10;
+          stroke-miterlimit: 10;
+          stroke-linecap: round;
+          animation: loading-circle 1s linear infinite;
+          stroke: #8e44ad;
+          fill: transparent;
+        }
+
+        @keyframes loading {
+          0% {
+            transform: rotate(0);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes loading-circle {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: -600;
+          }
+        }
+
+      </style>
+
+      <div class="loading-bro">
+        <svg id="load" x="0px" y="0px" viewBox="0 0 150 150">
+          <circle id="loading-inner" cx="75" cy="75" r="60" />
+        </svg>
+      </div>
+
+    </div>
+
+  </app-root>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <!-- select2 Js -->
+  <script src="./assets/js/select2.min.js"></script>
+  <!-- Owl Carousel -->
+  <script src="./assets/js/owl.carousel.js"></script>
+  <script src="./assets/js/custom.min.js"></script>
+</body>
+
+</html>
