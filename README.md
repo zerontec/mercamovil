@@ -29,8 +29,14 @@ A Shopping Website build with Angular 4 and Firebase.
     > cd organic-shop/
     > npm install
     > npm start -- --host 127.0.0.1
-
-```
+    
+    or my version 
+    
+     git clone https://github.com/zerontec/mercamovil.git
+     cd mercamovil/
+     > npm install
+     > npm start -- --host 127.0.0.1
+``
 
 ----------
 
