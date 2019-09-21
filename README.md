@@ -1,4 +1,4 @@
-# Organic shop
+# Organic shop Renown to mercamovil :)
 
 A Shopping Website build with Angular 4 and Firebase.
 
