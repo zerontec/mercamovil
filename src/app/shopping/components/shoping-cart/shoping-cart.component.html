@@ -42,13 +42,13 @@
                                      <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
                                   </td>
                                   <td class="availability in-stock"><span class="badge badge-success">In stock</span></td>
-                                  <td class="price"><span>{{item.price}}</span></td>
+                                  <td class="price"><span> {{item.price | currency:'VES': true}}</span></td>
                                   <td class="qty">
                                      
                                         <product-quantity [product]="item" [shopping-cart]="cart" [msg]="null"></product-quantity>
                                      
                                   </td>
-                                  <td class="price"><span>{{item.totalPrice | currency:'INR':true}}</span></td>
+                                  <td class="price"><span>{{item.totalPrice | currency:'VEF':'symbol'}}</span></td>
                                   <td class="action">
                                      <a class="btn btn-sm btn-danger" data-original-title="Remove" href="#" title="" data-placement="top" data-toggle="tooltip"><i class="mdi mdi-close-circle-outline"></i></a>
                                   </td>

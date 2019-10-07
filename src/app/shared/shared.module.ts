@@ -7,7 +7,7 @@ import { DataTableModule } from 'angular-4-data-table';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { CustomFormsModule } from 'ng2-validation';
-
+import { UserperfComponent} from './components/userperf/userperf.component';
 import { ListOrderViewComponent } from './components/list-order-view/list-order-view.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
@@ -19,8 +19,11 @@ import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
 import { PayService} from './services/pay.service';
+import { SliderComponent } from './components/slider/slider.component';
+
 @NgModule({
   imports: [
+    RouterModule,
     CommonModule,
     RouterModule,
     FormsModule,
@@ -29,11 +32,15 @@ import { PayService} from './services/pay.service';
     NgbModule.forRoot(),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+
+
   ],
   declarations: [
     ProductCardComponent,
     ProductQuantityComponent,
-    ListOrderViewComponent
+    ListOrderViewComponent,
+    UserperfComponent,
+    SliderComponent
   ],
   providers: [
     AuthService,
@@ -55,7 +62,9 @@ import { PayService} from './services/pay.service';
     NgbModule.forRoot().ngModule,
     ProductCardComponent,
     ProductQuantityComponent,
-    ListOrderViewComponent
+    ListOrderViewComponent,
+    UserperfComponent,
+    SliderComponent
   ]
 })
 export class SharedModule { }

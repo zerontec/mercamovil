@@ -1,4 +1,4 @@
-<h1>Datos para Envios </h1>
+<h2>Datos para Envios </h2>
 
 <ng-container *ngIf="cart$ | async as cart">
   <ng-container *ngIf="cart.totalItemCount > 0; else noCart">
@@ -10,28 +10,57 @@
       <div class="col-md-6 col-sm-12">
         <shopping-cart-summary [cart]='cart'></shopping-cart-summary>
 <hr>
-        <div class="card">
-            <div class="card-body">
-              <h4 class="card-title " >Datos de Cuentas para pagos</h4>
-              <p class="card-text"><strong> </strong></p>
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item" *ngFor="let item of cart.items">
-                      <strong>Grupo c-137 rif j317513347</strong>
-                       
-                     </li>
-                <li class="list-group-item" *ngFor="let item of cart.items">
-                 <strong> Banco de Venezuela Cta Corriente 0102 00 84578 93848 876543</strong>
-                  
-                </li>
-                <li class="list-group-item" *ngFor="let item of cart.items">
-                    <strong> Banco de Venezuela Cta Corriente 0102 00 84578 93848 876543</strong>
-                     
-                   </li>
-        
-               
-              </ul>
-            </div>
-          </div>
+<div class="card card-body">
+  <div class="accordion" id="accordionExample">
+     <div class="card mb-0">
+        <div class="card-header" id="headingOne">
+           <h6 class="mb-0">
+              <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <i class="icofont icofont-question-square"></i>   Directorio Bancos para Realizar Transferencias 
+              </a>
+           </h6>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <h5>A nombre de <Strong>Grupo C-137, C.A Rif-J 310513347</Strong></h5>
+           <div class="card-body">
+              Banco de Venezuela Nro 0102-00099382382334
+              <hr>
+              Banco Banesco  Nro 0134-008476748893
+              <hr>
+              Banco El Banco  Nro 0394342834938948
+           </div>
+        </div>
+     </div>
+     <div class="card mb-2 mt-2">
+        <div class="card-header" id="headingTwo">
+           <h6 class="mb-0">
+              <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              <i class="icofont icofont-question-square"></i> Datos para Registrar Pago Movil 
+              </a>
+           </h6>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+           <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil helvetica, craf.
+           </div>
+        </div>
+     </div>
+     <div class="card">
+        <div class="card-header" id="headingThree">
+           <h6 class="mb-0">
+              <a href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              <i class="icofont icofont-question-square"></i>   How much should I capitalize? 
+              </a>
+           </h6>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+           <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil helvetica, craf.
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
       </div>
     </div>
   </ng-container>

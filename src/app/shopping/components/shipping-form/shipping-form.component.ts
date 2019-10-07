@@ -18,7 +18,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   userId: string;
   userName: string;
   userSubscription: Subscription;
-
+  toggleFlag1= false;
+  toggleFlag2= false;
 
   constructor(
     private auth: AuthService,
@@ -35,6 +36,13 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
+  }
+
+  onToggle1() {
+	  this.toggleFlag1 = (this.toggleFlag1 === true)? false : true;
+  }
+  onToggle2() {
+	  this.toggleFlag2 = (this.toggleFlag2 === true)? false : true;
   }
 
   save(shipping) {

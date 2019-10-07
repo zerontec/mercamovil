@@ -1,3 +1,4 @@
+
 <form #checkOutForm="ngForm" (ngSubmit)="save(checkOutForm.value)" novalidate>
     <div class="form-group">
       <label for="name">Nombre</label>
@@ -32,25 +33,130 @@
     </div>
     <div class="form-group">
         <label for="ndt">Nro telefonico</label>
-        <input type="number" name="ndt" ngModel #ndt="ngModel" for="ndt" class="form-control" required placeholder="Nro de Telefono ">
+    
+        <select class="form-control"   >
+            <option value="0414">0414</option>
+            <option value="0424">0424</option>
+            <option value="0416">0416</option>
+            <option value="0426">0426</option>
+            <option value="0412">0412</option>
+            <option value="0412">0286</option>
+            </select>
+            
+                <input class="form-control"  data-val="true"  name="ndt" ngModel #ndt="ngModel" for="ndt"  required placeholder="Nro de Telefono 7 digitos  " maxlength="7" minlength="7"  type="text" value="">
+            
         <div class="alert alert-danger" *ngIf="ndt.touched && ndt.invalid">
-          Nro de telefono es Requerido 
+          Nro de telefono es Requerido Ingreso solo numeros
         </div>
       </div>
 
-    <h2>Datos de pago</h2>
+      <div class="col-md-10">
+          <label class="control-label d-block d-sm-block d-md-none d-lg-none d-xl-none" for="Movil">Número pagador</label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-mobile-alt"></i> <strong class="ml-1 d-none d-sm-none d-md-block d-lg-block d-xl-block"> Número pagador</strong></span>
+              </div>
+              <div class="input-group-prepend">
+                  <select class="form-control" data-val="true" data-val-required="El campo LineasTlfMovil es obligatorio." id="LineasTlfMovil" min="0" name="LineasTlfMovil">
+<option value="0414">0414</option>
+<option value="0424">0424</option>
+<option value="0416">0416</option>
+<option value="0426">0426</option>
+<option value="0412">0412</option>
+</select>
+              </div>
+              <div class="input-group-append">
+                  <input class="form-control text-box single-line" data-val="true" data-val-length="Ingrese los últimos 7 dígitos de su teléfono celular asociado a pago móvil" data-val-length-max="7" data-val-length-min="7" id="Movil" name="Movil" placeholder="Su número celular" type="text" value="">
+              </div>
+          </div>
+          <small class="form-text text-muted">
+              Escriba su número de teléfono celular asociado a pago móvil, desde el cual está realizando el pago, sin puntos ni guiones.
+          </small>
+          <span class="field-validation-valid text-danger" data-valmsg-for="Movil" data-valmsg-replace="true"></span>
+      </div>
+
+    <h2>Registrar Pago</h2>
+
+    <button type="button" (click)="onToggle1()">transferencia</button>
+    <button type="button" (click)="onToggle2()">Pago Movil</button>
+       
+   <ng-template [ngIf]="toggleFlag1">
     <div class="form-group">
       <label for="bank">Banco</label>
-      <input type="text" name="bank" ngModel #bank="ngModel" for="bank" class="form-control" required>
+      <input type="text" name="bank" ngModel #bank="ngModel" for="bank" class="form-control" required placeholder="Banco al cual transfirio">
       <div class="alert alert-danger" *ngIf="bank.touched && bank.invalid">
         El Banco es Requerido
       </div>
     </div>
     <div class="form-group">
+        <label for="monto">Monto </label>
+        <div class="input-group">
+            <span class="input-group-addon"></span>
+            <input  ngModel #monto="ngModel" name="monto" type="number" class="form-control" id="monto" required [min]="4" placeholder="Monto total de Factura ">
+    
+          </div>
+          <div class="alert alert-danger" *ngIf="monto.touched && monto.invalid">
+              <div *ngIf="monto.errors.required">El Monto de la factura es Requerido .</div>
+              <div *ngIf="monto.errors.min"> Deberian ser Numeros .</div>
+            </div>
+      </div>
+      <div class="form-group">
+        <label for="ndr">Nro de Referencia </label>
+        <div class="input-group">
+            <span class="input-group-addon"></span>
+            <input  ngModel #ndr="ngModel" name="ndr" type="text" class="form-control" id="ndr" minlength="4"  maxlength="9"  required  placeholder="Nro de Referencia  ">
+    
+          </div>
+          <div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
+              <div *ngIf="ndr.errors.required">Nro de Referencia es Requerido .</div>
+              <div *ngIf="ndr.errors.min"> deberian ser los ultimos 4 digitos.</div>
+            </div>
+      </div>
+      <div class="form-group">
+  <label for="fecha">Fecha</label>
+  <div class="input-group">
+    <span class="iput-group-addon"></span>
+    <input type="date" name="fecha" ngModel #fecha="ngModel" class="form-control" id="fecha" required >
+  </div>
+  <div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
+    <div *ngIf="fecha.errors.required">Nro de Referencia es Requerido .</div>
+    <div *ngIf="fecha.errors.min"> deberian ser los ultimos 4 digitos.</div>
+  </div>
+      </div>
+      
+  </ng-template>
+
+  <!--pago movil-->
+  <ng-template [ngIf]="toggleFlag2">
+  
+  <div class="form-group">
+    <label for="telf">Nro Telefono</label>
+    <div class="input-group">
+      <span class="input-group-addon"></span>
+      <input  type="tel" ngModel #telf="ngModel" name="telf" for="telf" class="form-control" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="telf.touched && telf.invalid">
+        <div *ngIf="telf.errors.required">Nro de Referencia es Requerido .</div>
+        <div *ngIf="telf.errors.min"> deberian ser los ultimos 4 digitos.</div>
+      </div>
+  </div>
+    <div class="form-group">
+      <label for="monto">Monto </label>
+      <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input  ngModel #monto="ngModel" name="monto" type="number" class="form-control" id="monto" required [min]="4" placeholder="Monto total de Factura ">
+  
+        </div>
+        <div class="alert alert-danger" *ngIf="monto.touched && monto.invalid">
+            <div *ngIf="monto.errors.required">El Monto de la factura es Requerido .</div>
+            <div *ngIf="monto.errors.min"> Deberian ser Numeros .</div>
+          </div>
+    </div>
+    <div class="form-group">
       <label for="ndr">Nro de Referencia </label>
       <div class="input-group">
           <span class="input-group-addon"></span>
-          <input  ngModel #ndr="ngModel" name="ndr" type="number" class="form-control" id="ndr" required [min]="4" placeholder="Ultimos 4 Numeros ">
+          <input  ngModel #ndr="ngModel" name="ndr" type="text" class="form-control" id="ndr" minlength="4"  maxlength="9"  required  placeholder="Nro de Referencia  ">
   
         </div>
         <div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
@@ -58,7 +164,18 @@
             <div *ngIf="ndr.errors.min"> deberian ser los ultimos 4 digitos.</div>
           </div>
     </div>
-    
+    <div class="form-group">
+<label for="fecha">Fecha</label>
+<div class="input-group">
+  <span class="iput-group-addon"></span>
+  <input type="date" name="fecha" ngModel #fecha="ngModel" class="form-control" id="fecha" required >
+</div>
+<div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
+  <div *ngIf="fecha.errors.required">Nro de Referencia es Requerido .</div>
+  <div *ngIf="fecha.errors.min"> deberian ser los ultimos 4 digitos.</div>
+</div>
+    </div>
+  </ng-template>
     <div class="form-group">
       <button class="btn btn-primary" [disabled]="checkOutForm.invalid || disableBtn">Ejecutar Orden</button>
     </div>

@@ -1,6 +1,14 @@
 <ng-container *ngIf="order$ | async as orders">
   <ng-container *ngIf="orders.length > 0; else noOrder">
-    <table class="table table-striped">
+      <div class="card card-body account-right">
+          <div class="widget">
+             <div class="section-header">
+                <h5 class="heading-design-h5">
+                   Order List
+                </h5>
+             </div>
+             <div class="order-list-tabel-main table-responsive">
+                <table class="datatabel table table-striped table-bordered order-list-tabel" width="100%" cellspacing="0">
       <thead>
         <tr>
           <th>Cliente</th>
@@ -16,6 +24,11 @@
         </tr>
       </tbody>
     </table>
+             </div>
+
+          </div>
+      </div>
+      
   </ng-container>
   <ng-template #noOrder>No Tienes Ordenes Aun </ng-template>
 </ng-container>

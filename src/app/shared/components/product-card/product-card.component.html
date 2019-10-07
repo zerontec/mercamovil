@@ -28,7 +28,7 @@
     <p class="offer-price mb-0"> {{product.price | currency:'INR':true}} <span class="regular-price">$800.99</span></p>
   </div>
   <div *ngIf="showActions && shoppingCart" class="product-footer">
-    <button *ngIf="!shoppingCart.itemsMap || shoppingCart?.getQty(product) === 0; else updateQty" (click)="addToCart()"type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i>Add to Cart</button>
+    <button *ngIf="!shoppingCart.itemsMap || shoppingCart?.getQty(product) === 0; else updateQty" (click)="addToCart()"type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i>Agregar al Carrito </button>
     <ng-template #updateQty>
       <product-quantity [product]="product" [shopping-cart]="shoppingCart"></product-quantity>
     </ng-template>

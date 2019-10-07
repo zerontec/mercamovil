@@ -23,6 +23,8 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@mdi/angular-material": "^4.4.95",
+    "@mdi/font": "^4.4.95",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.3",
     "angular-4-data-table": "^0.4.3",
     "angularfire2": "^4.0.0-rc.2",

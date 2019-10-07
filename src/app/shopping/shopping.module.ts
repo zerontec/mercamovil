@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { AuthGuardService } from 'shared/services/auth-guard.service';
 import { SharedModule } from 'shared/shared.module';
 
+
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderSuccssComponent } from './components/order-succss/order-succss.component';
@@ -17,10 +18,13 @@ import { PayFormComponent } from './components/pay-form/pay-form.component';
 import { PaySucssComponent } from './components/pay-sucss/pay-sucss.component';
 import { MyPaysComponent } from './components/my-pays/my-pays.component';
 import { AuthService } from 'shared/services/auth.service';
+import { CoreModule } from 'app/core/core.module';
 
 @NgModule({
   imports: [
     SharedModule,
+
+
     RouterModule.forChild([
     { path: 'cart', component: ShopingCartComponent },
     { path: 'Products', component: ProductsComponent },

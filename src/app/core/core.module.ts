@@ -14,6 +14,9 @@ import { ErrorComponent } from './components/error/error.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import {MenuBComponent} from './components/menu-b/menu-b.component'
+import { AuthGuardService } from 'shared/services/auth-guard.service';
+import { DirecUserComponent } from './components/direc-user/direc-user.component';
 
 @NgModule({
   imports: [
@@ -23,8 +26,9 @@ import { RegisterComponent } from './components/register/register.component';
     RouterModule.forChild([
 
       {path: 'home', component: HomeComponent},
-      { path: 'login', component: LoginComponent },
-      {path: 'about', component: AboutComponent}
+      {path: 'login', component: LoginComponent },
+      {path: 'about', component: AboutComponent},
+      {path: 'perfil', component: ProfileComponent, canActivate: [AuthGuardService]}
     ])
   ],
   declarations: [
@@ -38,13 +42,18 @@ import { RegisterComponent } from './components/register/register.component';
     ErrorComponent,
     ContactComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    DirecUserComponent,
+    MenuBComponent
   ],
   exports: [
     BsNavbarComponent,
     FooterComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
+    RouterModule,
+    MenuBComponent
+
   ]
 
 })

@@ -18,6 +18,10 @@ export class ProductService {
       }
     });
   }
+  getOfferProduct() {
+   return  this.db.object('/products/' + 'oferta');
+
+  }
 
   getById(id: string) {
     return this.db.object('/products/' + id);
@@ -30,4 +34,6 @@ export class ProductService {
   deleteById(id) {
     return this.db.object('/products/' + id).remove();
   }
+
+ 
 }

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-shoping-cart',
   templateUrl: './shoping-cart.component.html',
