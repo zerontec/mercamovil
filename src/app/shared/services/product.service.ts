@@ -18,6 +18,13 @@ export class ProductService {
       }
     });
   }
+
+  getProductOther(){
+
+return this.db.list('/products');
+
+  }
+
   getOfferProduct() {
    return  this.db.object('/products/' + 'oferta');
 

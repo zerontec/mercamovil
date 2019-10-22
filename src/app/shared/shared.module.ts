@@ -20,6 +20,10 @@ import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
 import { PayService} from './services/pay.service';
 import { SliderComponent } from './components/slider/slider.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrService } from './services/toastr.service';
+import {FlashMessagesModule} from 'angular2-flash-messages';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @NgModule({
   imports: [
@@ -32,6 +36,8 @@ import { SliderComponent } from './components/slider/slider.component';
     NgbModule.forRoot(),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    HttpClientModule,
+    FlashMessagesModule
 
 
   ],
@@ -50,7 +56,9 @@ import { SliderComponent } from './components/slider/slider.component';
     ProductService,
     ShoppingCartService,
     OrderService,
-    PayService
+    PayService,
+    ToastrService,
+    FlashMessagesService
   ],
   exports : [
     CommonModule,

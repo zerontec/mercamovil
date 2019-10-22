@@ -1,6 +1,19 @@
 export interface IAppUser {
-  name: string;
   email: string;
-  foto:string;
+  name: string;
+  password: string;
+  foto: string;
   isAdmin: boolean;
+
+
 }
+
+
+
+
+
+
+
+
+
+

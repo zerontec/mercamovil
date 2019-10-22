@@ -7,6 +7,8 @@ import * as firebase from 'firebase';
 @Injectable()
 export class UserService {
 
+
+
   constructor(private db: AngularFireDatabase) { }
 
   add(user: firebase.User) {
@@ -15,11 +17,14 @@ export class UserService {
       email: user.email,
       foto: user.photoURL,
 
+
+
     });
   }
 
   get(uid: string) {
     return this.db.object('/user/' + uid) as Observable<IAppUser>;
+
   }
 
 }

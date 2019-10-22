@@ -10,6 +10,9 @@ import { SharedModule } from 'shared/shared.module';
 import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './shopping/components/products/products.component';
+import {ToastrService} from './shared/services/toastr.service';
+import {FlashMessagesModule} from 'angular2-flash-messages';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,12 @@ import { ProductsComponent } from './shopping/components/products/products.compo
     SharedModule,
     AdminModule,
     ShoppingModule,
+    FlashMessagesModule,
     RouterModule.forRoot([
       { path: '', component: ProductsComponent }
     ])
   ],
-  providers: [],
+  providers: [ToastrService, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

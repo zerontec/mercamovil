@@ -14,21 +14,26 @@ import { ErrorComponent } from './components/error/error.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
-import {MenuBComponent} from './components/menu-b/menu-b.component'
+import {MenuBComponent} from './components/menu-b/menu-b.component';
 import { AuthGuardService } from 'shared/services/auth-guard.service';
 import { DirecUserComponent } from './components/direc-user/direc-user.component';
+import { FormsModule } from '@angular/forms';
+import { PageErrorComponent } from './components/page-error/page-error.component';
 
 @NgModule({
   imports: [
     SharedModule,
     ShoppingModule,
+   FormsModule,
 
     RouterModule.forChild([
 
       {path: 'home', component: HomeComponent},
       {path: 'login', component: LoginComponent },
+      {path: 'registro', component: RegisterComponent },
       {path: 'about', component: AboutComponent},
-      {path: 'perfil', component: ProfileComponent, canActivate: [AuthGuardService]}
+      {path: 'perfil', component: ProfileComponent, canActivate: [AuthGuardService]},
+      //{path: '**', component: PageErrorComponent}
     ])
   ],
   declarations: [
@@ -44,7 +49,8 @@ import { DirecUserComponent } from './components/direc-user/direc-user.component
     ProfileComponent,
     RegisterComponent,
     DirecUserComponent,
-    MenuBComponent
+    MenuBComponent,
+    PageErrorComponent,
   ],
   exports: [
     BsNavbarComponent,
@@ -52,7 +58,8 @@ import { DirecUserComponent } from './components/direc-user/direc-user.component
     HomeComponent,
     ModalComponent,
     RouterModule,
-    MenuBComponent
+    MenuBComponent,
+    PageErrorComponent
 
   ]
 

@@ -16,34 +16,45 @@ import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 export class HomeComponent implements OnInit {
 
   products: IProduct[] = [];
-  filteredProducts: IProduct[];
-  category: string;
-  cart$: Observable<ShoppingCart>;
-  
+  public product = '';
+ 
+
   constructor(private productServices: ProductService,
     private route: ActivatedRoute,
     private cartService: ShoppingCartService,) { }
 
 
     async ngOnInit() {
-      this.cart$ = await this.cartService.getCart();
-      this.populateProducts();
+      // this.cart$ = await this.cartService.getCart();
+      // this.populateProducts();
+
+      this.productServices.getProductOther().subscribe(products => {
+
+        console.log('products', products);
+        this.products = products;
+      })
     }
 
-    private populateProducts() {
-      this.productServices.getAll()
-        .switchMap(products => {
-          this.products = products;
-          return this.route.queryParamMap;
-        })
-        .subscribe(params => {
-          this.category = params.get('category');
-          this.applyFilter();
-        });
-    }
 
-    private applyFilter() {
-      this.filteredProducts = !this.category ? this.products
-        : this.products.filter(e => e.category === this.category);
-    }
+       
+
+    // private populateProducts() {
+    //   this.productServices.getAll()
+    //     .switchMap(products => {
+    //       this.products = products;
+    //       return this.route.queryParamMap;
+    //     })
+    //     .subscribe(params => {
+    //       this.category = params.get('category');
+    //       this.applyFilter();
+    //     });
+    // }
+
+
+    
+
+    // private applyFilter() {
+    //   this.filteredProducts = !this.category ? this.products
+    //     : this.products.filter(e => e.category === this.category);
+    // }
   }

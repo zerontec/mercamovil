@@ -1,12 +1,6 @@
 
 <form #checkOutForm="ngForm" (ngSubmit)="save(checkOutForm.value)" novalidate>
-    <div class="form-group">
-      <label for="name">Nombre</label>
-      <input type="text" name="name" ngModel #name="ngModel" for="name" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-        El nombre es Requerido.
-      </div>
-    </div>
+   
 
     <div class="form-group">
       <label for="addressLine1">Direccion linea 1</label>
@@ -50,35 +44,12 @@
         </div>
       </div>
 
-      <div class="col-md-10">
-          <label class="control-label d-block d-sm-block d-md-none d-lg-none d-xl-none" for="Movil">Número pagador</label>
-          <div class="input-group">
-              <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-mobile-alt"></i> <strong class="ml-1 d-none d-sm-none d-md-block d-lg-block d-xl-block"> Número pagador</strong></span>
-              </div>
-              <div class="input-group-prepend">
-                  <select class="form-control" data-val="true" data-val-required="El campo LineasTlfMovil es obligatorio." id="LineasTlfMovil" min="0" name="LineasTlfMovil">
-<option value="0414">0414</option>
-<option value="0424">0424</option>
-<option value="0416">0416</option>
-<option value="0426">0426</option>
-<option value="0412">0412</option>
-</select>
-              </div>
-              <div class="input-group-append">
-                  <input class="form-control text-box single-line" data-val="true" data-val-length="Ingrese los últimos 7 dígitos de su teléfono celular asociado a pago móvil" data-val-length-max="7" data-val-length-min="7" id="Movil" name="Movil" placeholder="Su número celular" type="text" value="">
-              </div>
-          </div>
-          <small class="form-text text-muted">
-              Escriba su número de teléfono celular asociado a pago móvil, desde el cual está realizando el pago, sin puntos ni guiones.
-          </small>
-          <span class="field-validation-valid text-danger" data-valmsg-for="Movil" data-valmsg-replace="true"></span>
-      </div>
+      
 
     <h2>Registrar Pago</h2>
 
-    <button type="button" (click)="onToggle1()">transferencia</button>
-    <button type="button" (click)="onToggle2()">Pago Movil</button>
+    <button class="btn btn-primary" type="button" (click)="onToggle1()">Transferencia</button>
+    <button class="btn btn-primary" type="button" (click)="onToggle2()">Pago Movil</button>
        
    <ng-template [ngIf]="toggleFlag1">
     <div class="form-group">
@@ -176,6 +147,7 @@
 </div>
     </div>
   </ng-template>
+  <hr>
     <div class="form-group">
       <button class="btn btn-primary" [disabled]="checkOutForm.invalid || disableBtn">Ejecutar Orden</button>
     </div>
