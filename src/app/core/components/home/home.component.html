@@ -113,141 +113,56 @@
          </div>
       </div>
    </section>
-   <section class="carousel-slider-main text-center border-top border-bottom bg-white">
-      <div class="owl-carousel owl-carousel-slider">
-         <div class="item">
-            <a href="http://askbootstrap.com/preview/osahan-grocery/shop.html"><img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/slider/slider1.jpg" alt="First slide"></a>
-         </div>
-         <div class="item">
-            <a href="http://askbootstrap.com/preview/osahan-grocery/shop.html"><img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/slider/slider2.jpg" alt="First slide"></a>
-         </div>
+
+ 
+     <ngbd-carousel-navigation> </ngbd-carousel-navigation>
+
+   <hr>
+
+   <section class="section-padding">
+      <div class="section-title text-center mb-5">
+         <h2 style="color: #e96125!important">Nuestros Servicios</h2>
+         <p>.</p>
       </div>
-   </section>
-   <section class="product-items-slider section-padding">
-      <div class="container" >
-         <div class="section-header">
-            <h5 class="heading-design-h5">Top Savers Today <span class="badge badge-primary">20% OFF</span>
-               <a class="float-right text-secondary" href="http://askbootstrap.com/preview/osahan-grocery/shop.html">View All</a>
-            </h5>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-4 col-md-4">
+               <div class="mt-4 mb-4"><i class="text-success mdi mdi-shopping mdi-48px"></i></div>
+               <h5 class="mt-3 mb-3 text-secondary">Los Mejores precios y Ofertas</h5>
+               <p>Siempre estaremos Llevando Ofertas en muchos de nuestros productos, precios de competencia  .</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+               <div class="mt-4 mb-4"><i class="text-success mdi mdi-earth mdi-48px"></i></div>
+               <h5 class="mb-3 text-secondary">Amplio Surtido</h5>
+               <p>Estaremos en Constantes Actualizacion de nuestros inventarios   .</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+               <div class="mt-4 mb-4"><i class="text-success mdi mdi-refresh mdi-48px"></i></div>
+               <h5 class="mt-3 mb-3 text-secondary">Proceso de cambio </h5>
+               <p>Soporte al instante por si necesitas realizar algún cambio de tus productos .</p>
+            </div>
          </div>
-         <div class="owl-carousel owl-carousel-featured" >
-            <div class="item" *ngFor="let product of products">
-               <div class="product">
-                  <a href="http://askbootstrap.com/preview/osahan-grocery/single.html">
-                     <div class="product-header">
-                        <span class="badge badge-success">50% OFF</span>
-                        <img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/item/1.jpg" alt="">
-                        <span class="veg text-success mdi mdi-circle"></span>
-                     </div>
-                     <div class="product-body">
-                        <h5>{{product.title}}</h5>
-                        <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                     </div>
-                     <div class="product-footer">
-                        <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                        <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                     </div>
-                  </a>
-               </div>
+         <div class="row">
+            <div class="col-lg-4 col-md-4">
+               <div class="mt-4 mb-4"><i class="text-success mdi mdi-truck-fast mdi-48px"></i></div>
+               <h5 class="mb-3 text-secondary">Entrega Gratuita  </h5>
+               <p>Entrega Gratuitas al procesar tu pago siempre nos mantendremos en contacto para garantizar la entrega de tus productos .</p>
             </div>
-            <div class="item">
-               <div class="product">
-                  <a href="http://askbootstrap.com/preview/osahan-grocery/single.html">
-                     <div class="product-header">
-                        <span class="badge badge-success">50% OFF</span>
-                        <img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/item/2.jpg" alt="">
-                        <span class="non-veg text-danger mdi mdi-circle"></span>
-                     </div>
-                     <div class="product-body">
-                        <h5>Product Title Here</h5>
-                        <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                     </div>
-                     <div class="product-footer">
-                        <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                        <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                     </div>
-                  </a>
-               </div>
+            <div class="col-lg-4 col-md-4">
+               <div class="mt-4 mb-4"><i class="text-success mdi mdi-basket mdi-48px"></i></div>
+               <h5 class="mt-3 mb-3 text-secondary">100% Satisfacción Garantizada</h5>
+               <p>Haremos lo imposible por llevar a Feliz ermino el proceso de compra para que puedas sentirte a gusto con nosotros .</p>
             </div>
-            <div class="item">
-               <div class="product">
-                  <a href="http://askbootstrap.com/preview/osahan-grocery/single.html">
-                     <div class="product-header">
-                        <span class="badge badge-success">50% OFF</span>
-                        <img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/item/3.jpg" alt="">
-                        <span class="non-veg text-danger mdi mdi-circle"></span>
-                     </div>
-                     <div class="product-body">
-                        <h5>Product Title Here</h5>
-                        <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                     </div>
-                     <div class="product-footer">
-                        <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                        <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="item">
-               <div class="product">
-                  <a href="http://askbootstrap.com/preview/osahan-grocery/single.html">
-                     <div class="product-header">
-                        <span class="badge badge-success">50% OFF</span>
-                        <img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/item/4.jpg" alt="">
-                        <span class="veg text-success mdi mdi-circle"></span>
-                     </div>
-                     <div class="product-body">
-                        <h5>Product Title Here</h5>
-                        <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                     </div>
-                     <div class="product-footer">
-                        <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                        <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="item">
-               <div class="product">
-                  <a href="http://askbootstrap.com/preview/osahan-grocery/single.html">
-                     <div class="product-header">
-                        <span class="badge badge-success">50% OFF</span>
-                        <img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/item/5.jpg" alt="">
-                        <span class="veg text-success mdi mdi-circle"></span>
-                     </div>
-                     <div class="product-body">
-                        <h5>Product Title Here</h5>
-                        <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                     </div>
-                     <div class="product-footer">
-                        <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                        <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="item">
-               <div class="product">
-                  <a href="http://askbootstrap.com/preview/osahan-grocery/single.html">
-                     <div class="product-header">
-                        <span class="badge badge-success">50% OFF</span>
-                        <img class="img-fluid" src="http://askbootstrap.com/preview/osahan-grocery/img/item/6.jpg" alt="">
-                        <span class="veg text-success mdi mdi-circle"></span>
-                     </div>
-                     <div class="product-body">
-                        <h5>Product Title Here</h5>
-                        <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
-                     </div>
-                     <div class="product-footer">
-                        <button type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i> Add To Cart</button>
-                        <p class="offer-price mb-0">$450.99 <i class="mdi mdi-tag-outline"></i><br><span class="regular-price">$800.99</span></p>
-                     </div>
-                  </a>
-               </div>
+            <div class="col-lg-4 col-md-4">
+               <div class="mt-4 mb-4"><i class="text-success mdi mdi mdi-tag-heart mdi-48px"></i></div>
+               <h5 class="mt-3 mb-3 text-secondary">Grandes ofertas diarias de descuentos </h5>
+               <p>Siempre atentos a nuestros descuentos diario te sorprenderas .</p>
             </div>
          </div>
       </div>
    </section>
+
+  
    <section class="offer-product">
       <div class="container">
          <div class="row no-gutters">
@@ -263,7 +178,7 @@
    <section class="product-items-slider section-padding">
       <div class="container">
          <div class="section-header">
-            <h5 class="heading-design-h5">Best Offers View <span class="badge badge-info">20% OFF</span>
+            <h5 class="heading-design-h5">Las Mejores Ofertas<span class="badge badge-info">20% OFF</span>
                <a class="float-right text-secondary" href="http://askbootstrap.com/preview/osahan-grocery/shop.html">View All</a>
             </h5>
          </div>

@@ -1,6 +1,6 @@
 <div class="sticky-top">
   <ul class="list-group" *ngIf="category$ | async as categories">
-    <a class="list-group-item list-group-item-action" [class.active]="!selectedCategory" [routerLink]="['/']">All Category</a>
+    <a class="list-group-item list-group-item-action" [class.active]="!selectedCategory" [routerLink]="['/']">Todas Las Categorias</a>
     <a *ngFor="let category of categories" [class.active]="selectedCategory === category.$key " [routerLink]="['/']" [queryParams]="{category:category.$key}"
       class="list-group-item list-group-item-action">
       {{category.name}}
@@ -9,7 +9,7 @@
 
 
   <div class="left-ad mt-4 sticky-top ">
-    <img class="img-fluid" src="http://via.placeholder.com/254x557" alt="">
+    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/oshop-d5d87.appspot.com/o/bannerIz.gif?alt=media&token=578d2470-3034-4128-aed1-a023ecf04669" alt="">
    </div>
 </div>
 

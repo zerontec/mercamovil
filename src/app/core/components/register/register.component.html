@@ -24,7 +24,7 @@
               </div>
         
               <div class="form-group">
-                <label for="price">Nombre</label>
+                <label for="nombre">Nombre</label>
                 <div class="input-group">
                   <span class="input-group-addon"></span>
                   <input  [(ngModel)]="appUser.name" 
@@ -38,7 +38,7 @@
                 
               </div>
               <div class="form-group">
-                <label for="price">Password</label>
+                <label for="password">Password</label>
                 <div class="input-group">
                   <span class="input-group-addon"></span>
                   <input  [(ngModel)]="appUser.password" 
@@ -54,7 +54,7 @@
               </div>
         
               <div class="form-group">
-                  <label for="price">Confirmar Password</label>
+                  <label for="password">Confirmar Password</label>
                   <div class="input-group">
                     <span class="input-group-addon"></span>
                     <input  [(ngModel)]="appUser.password" 
@@ -78,8 +78,8 @@
             </form>
           </div>
           <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck2">
-              <label class="custom-control-label" for="customCheck2">Estoy de Acuerdo <a href="#">Terminos y Condiciones</a></label>
+              <input [(ngModel)]="acuerdo" type="checkbox" class="custom-control-input" id="ac">
+              <label class="custom-control-label" for="ac">Estoy de Acuerdo <a href="#">Terminos y Condiciones</a></label>
            </div>
            <hr>
            <p>Ya estoy Registrado

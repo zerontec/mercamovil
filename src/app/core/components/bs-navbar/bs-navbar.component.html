@@ -91,7 +91,7 @@
      <div class="row">
         <div class="col-lg-12 text-center">
            <a href="http://askbootstrap.com/preview/osahan-grocery/shop.html" class="mb-0 text-white">
-          Aprovecha estamos de promocion  <strong><span class="text-light">OFERTAS INCREIBLES <span class="mdi mdi-tag-faces"></span></span> </strong>  
+          Aprovecha estamos de promoción  <strong><span class="text-light">OFERTAS INCREIBLES <span class="mdi mdi-tag-faces"></span></span> </strong>  
            </a>
         </div>
      </div>
@@ -125,13 +125,13 @@
                   <img src="{{appUser.foto}}" class="rounded-circle"> <strong>Hola</strong> {{appUser.name || appUser.email}}
                </a>
                <div class="dropdown-menu dropdown-menu-right dropdown-list-design">
-                  <a  class="dropdown-item"[routerLink]="['perfil']">Perfil</a>
-                  <a  class="dropdown-item"[routerLink]="['cart']">Carrito</a>
+                  <a  class="dropdown-item"[routerLink]="['perfil/detalle']">Perfil</a>
+                  <a  class="dropdown-item"[routerLink]="['carrito']">Carrito</a>
                   <a class="dropdown-item" [routerLink]="['myorders']">Mis Ordenes</a>
                   
                   <ng-container *ngIf="appUser.isAdmin">
-                     <a class="dropdown-item" [routerLink]="['/admin','orders']">Manage Orders</a>
-                     <a class="dropdown-item" [routerLink]="['/admin','products']">Manage Products</a>
+                     <a class="dropdown-item" [routerLink]="['/admin','orders']">Manejar Ordenes</a>
+                     <a class="dropdown-item" [routerLink]="['/admin','products']">Manegar Productos</a>
                    </ng-container>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" (click)="logout()" [routerLink]="['/home']">Logout</a>
@@ -141,7 +141,7 @@
 
             
               <li class="list-inline-item cart-btn">
-                 <a [routerLink]="['cart']"class="btn btn-link border-none"><i class="mdi mdi-cart"></i> Mi Carrito <small class="cart-value">{{(totalCart$| async)?.totalItemCount}}</small></a>
+                 <a [routerLink]="['carrito']"class="btn btn-link border-none"><i class="mdi mdi-cart"></i> Mi Carrito <small class="cart-value">{{(totalCart$| async)?.totalItemCount}}</small></a>
               </li>
            </ul>
         </div>
@@ -153,7 +153,7 @@
      <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 margin-auto">
            <li class="nav-item">
-              <a class="nav-link shop" [routerLink]="['Products']"><span class="mdi mdi-store"></span> Merca Movil</a>
+              <a class="nav-link shop" [routerLink]="['Productos']"><span class="mdi mdi-store"></span> Merca Movil</a>
            </li>
    <li class="nav-item">
               <a  href="#" [routerLink]="['home'] " class="nav-link">Inicio</a>
@@ -162,10 +162,10 @@
               <a [routerLink]="['about']" class="nav-link">Conocenos</a>
            </li>
            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['Products']">Tienda</a>
+              <a class="nav-link" [routerLink]="['Productos']">Tienda</a>
            </li>
            <li class="nav-item">
-              <a class="nav-link" href="http://askbootstrap.com/preview/osahan-grocery/shop.html">Como Pagar</a>
+              <a class="nav-link" [routerLink]= "['como-pagar']">Como Pagar</a>
            </li>
            <li class="nav-item">
               <a class="nav-link" href="http://askbootstrap.com/preview/osahan-grocery/shop.html">Entrega</a>
@@ -204,7 +204,7 @@
               </div>
            </li>
            <li class="nav-item">
-              <a class="nav-link" href="http://askbootstrap.com/preview/osahan-grocery/contact.html">Contactanos</a>
+              <a class="nav-link" [routerLink]="['contacto']">Contactanos</a>
            </li>
         </ul>
      </div>

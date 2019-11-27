@@ -8,7 +8,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
+
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {ToastrService} from './toastr.service';
@@ -34,6 +34,7 @@ private apikey = 'AIzaSyAAMV8-pFHnxi6P8M2_7rlDF2BYw7jOJqk';
   }
 
 //REGISTRO CON GMAIL 
+
   loginc(provider: firebase.auth.AuthProvider) {
     this.afAuth.auth.signInWithPopup(provider);
   }
@@ -41,7 +42,8 @@ private apikey = 'AIzaSyAAMV8-pFHnxi6P8M2_7rlDF2BYw7jOJqk';
 
 
   //REGISTRO USURIO EMAIL PASSWORD
-signupUser(email: string, password: string){
+
+signupUser(email: string, password: string) {
 return new Promise((resolve, reject) => {
 this.afAuth.auth.createUserWithEmailAndPassword(email, password )
 .then(userInfo => resolve (userInfo),
@@ -52,6 +54,7 @@ this.afAuth.auth.createUserWithEmailAndPassword(email, password )
 }
 
 //INICIO SESION EMAIL Y PASSWORD 
+
 login(email: string, password: string){
 
 return new Promise((resolve, reject)  => {

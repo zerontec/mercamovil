@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { SharedModule } from 'shared/shared.module';
+import { HttpClientModule} from '@angular/common/http';
 
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -14,25 +15,42 @@ import { ErrorComponent } from './components/error/error.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
-import {MenuBComponent} from './components/menu-b/menu-b.component';
+import {MenuBComponent} from './components/profile/menu-b/menu-b.component';
 import { AuthGuardService } from 'shared/services/auth-guard.service';
-import { DirecUserComponent } from './components/direc-user/direc-user.component';
+import { DirecUserComponent } from './components/profile/direc-user/direc-user.component';
 import { FormsModule } from '@angular/forms';
 import { PageErrorComponent } from './components/page-error/page-error.component';
+import { MyOrdersComponent } from 'app/shopping/components/my-orders/my-orders.component';
+import { ProfileDireComponent } from './components/profile/profile-dire/profile-dire.component';
+import { ProfileDeseoComponent } from './components/profile/profile-deseo/profile-deseo.component';
+import { ProfileMyordersComponent } from './components/profile/profile-myorders/profile-myorders.component';
+import { ComoPagarComponent } from './components/como-pagar/como-pagar.component';
 
 @NgModule({
   imports: [
     SharedModule,
     ShoppingModule,
-   FormsModule,
+    FormsModule,
+    HttpClientModule,
+
 
     RouterModule.forChild([
 
-      {path: 'home', component: HomeComponent},
-      {path: 'login', component: LoginComponent },
-      {path: 'registro', component: RegisterComponent },
-      {path: 'about', component: AboutComponent},
-      {path: 'perfil', component: ProfileComponent, canActivate: [AuthGuardService]},
+      { path: 'home', component: HomeComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'registro', component: RegisterComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'como-pagar', component: ComoPagarComponent },
+      {path: 'contacto', component: ContactComponent},
+      {path: 'perfil', component: ProfileComponent , canActivate: [AuthGuardService], children: [
+
+          { path: 'detalle', component: ProfileDireComponent },
+          { path: 'deseos', component: ProfileDeseoComponent },
+          { path: 'ordenes', component: ProfileMyordersComponent }
+
+
+        ]
+      },
       //{path: '**', component: PageErrorComponent}
     ])
   ],
@@ -51,6 +69,10 @@ import { PageErrorComponent } from './components/page-error/page-error.component
     DirecUserComponent,
     MenuBComponent,
     PageErrorComponent,
+    ProfileDireComponent,
+    ProfileDeseoComponent,
+    ProfileMyordersComponent,
+    ComoPagarComponent,
   ],
   exports: [
     BsNavbarComponent,

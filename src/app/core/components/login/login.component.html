@@ -16,7 +16,7 @@
       </div>
 
       <div class="form-group">
-        <label for="price">password </label>
+        <label for="pasword">password </label>
         <div class="input-group">
           <span class="input-group-addon"></span>
           <input [(ngModel)]="appUser.password" name="password" type="password" class="form-control" id="password"
@@ -27,8 +27,7 @@
 
       <div class="form-group">
 
-        <button type="submit" class="btn btn-lg btn-secondary btn-block" [disabled]="f.invalid">Enter to your
-          account</button>
+        <button type="submit" class="btn btn-lg btn-secondary btn-block" [disabled]="f.invalid">Entrar a Tu Cuenta </button>
       </div>
 
     </form>
@@ -46,8 +45,8 @@
   <button class="btn-twitter login-icons btn-lg"><i class="mdi mdi-twitter"></i> Twitter</button>
 </div>
 <div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="customCheck1">
-  <label class="custom-control-label" for="customCheck1">Recuerdame</label>
+  <input [(ngModel)]= "recordarme" type="checkbox" class="custom-control-input" id="ckb1">
+  <label class="custom-control-label" for="ckb1">Recuerdame</label>
 </div>
 <p>No Tienes Cuenta ?
   <a [routerLink]="[ '/registro' ]" style="color:dodgerblue">Registrate Aqui!</a>

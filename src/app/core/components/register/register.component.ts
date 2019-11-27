@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   public password: string ;
   public name: string;
   recordarme = false;
+  acuerdo= false;
 
   constructor(private authService: AuthService,
      private router:Router,
@@ -27,6 +28,8 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
+
+
   }
 
 onSubmit( form: NgForm ){

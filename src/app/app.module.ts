@@ -7,6 +7,8 @@ import { CoreModule } from 'app/core/core.module';
 import { ShoppingModule } from 'app/shopping/shopping.module';
 import { SharedModule } from 'shared/shared.module';
 
+import { HttpClientModule} from '@angular/common/http';
+
 import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './shopping/components/products/products.component';
@@ -26,6 +28,7 @@ import {FlashMessagesService} from 'angular2-flash-messages';
     AdminModule,
     ShoppingModule,
     FlashMessagesModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: ProductsComponent }
     ])

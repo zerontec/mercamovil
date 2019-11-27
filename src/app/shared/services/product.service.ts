@@ -42,5 +42,13 @@ return this.db.list('/products');
     return this.db.object('/products/' + id).remove();
   }
 
+
+  // searchProducts(){
+  //     return this.db.list('/products', {
+  //       query: {
+  //         orderByChild: 'title'
+  //       }
+  // }
+
  
 }

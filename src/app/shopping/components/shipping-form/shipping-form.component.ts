@@ -38,11 +38,13 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     this.userSubscription.unsubscribe();
   }
 
+
+  //para Boton de opciones de pago 
   onToggle1() {
-	  this.toggleFlag1 = (this.toggleFlag1 === true)? false : true;
+this.toggleFlag1 = (this.toggleFlag1 === true)? false : true;
   }
   onToggle2() {
-	  this.toggleFlag2 = (this.toggleFlag2 === true)? false : true;
+this.toggleFlag2 = (this.toggleFlag2 === true)? false : true;
   }
 
   save(shipping) {

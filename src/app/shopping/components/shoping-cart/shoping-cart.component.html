@@ -39,7 +39,7 @@
                                   <td class="cart_product"><a href="#"><div class="thumbnail" [style.backgroundImage]="'url('+ item.imageUrl +')'" alt=""></div></a></td>
                                   <td class="cart_description">
                                      <h5 class="product-name"><a href="#">{{item.title}} </a></h5>
-                                     <h6><strong><span class="mdi mdi-approval"></span> Available in</strong> - 500 gm</h6>
+                                     <h6><strong><span class="mmdi-approval"></span> Disponible en </strong> - 500 gm</h6>
                                   </td>
                                   <td class="availability in-stock"><span class="badge badge-success">In stock</span></td>
                                   <td class="price"><span> {{item.price | currency:'VES': true}}</span></td>
@@ -65,7 +65,7 @@
                             </tfoot>
                          </table>
                       </div>
-                      <a [routerLink]="['/checkout']"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Ir a Pagar  </span><span class="float-right"><strong>{{cart.totalPrice | currency:'INR':true}}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
+                      <a [routerLink]="['/checkout']"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Finalizar Compra  </span><span class="float-right"><strong>{{cart.totalPrice | currency:'INR':true}}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
                    </div>
                    
                 </div>
@@ -83,5 +83,7 @@
 
 
 <ng-template #noCart>
-  <h2>No tienes Productos en el Carrito de Compras</h2>
+   
+ <button class="btn btn-secundary">No tienes Productos En El carrito de Compra</button>
+  <a [routerLink]="['/']" class="fix btn btn-info" >Ir A Tienda  </a>
 </ng-template>

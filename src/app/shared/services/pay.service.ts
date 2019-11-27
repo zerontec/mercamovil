@@ -48,8 +48,6 @@ updateById(id, pay) {
 deleteById(id) {
 
   return this.db.object('/pay/' + id).remove();
-
-  
 }
 
 

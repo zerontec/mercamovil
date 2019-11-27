@@ -29,6 +29,12 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+
+    if( localStorage.getItem('email')) {
+
+      this.appUser.email = localStorage.getItem('email');
+      this.recordarme = true;
+    }
   }
 
 

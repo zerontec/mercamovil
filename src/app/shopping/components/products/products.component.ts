@@ -19,6 +19,7 @@ export class ProductsComponent implements OnInit {
   filteredProducts: IProduct[];
   category: string;
   cart$: Observable<ShoppingCart>;
+  filterProducts: IProduct[];
 
   constructor(
     private cartService: ShoppingCartService,
@@ -48,5 +49,8 @@ export class ProductsComponent implements OnInit {
       : this.products.filter(e => e.category === this.category);
   }
 
+  private applyFilterA(){
+
+  }
 
 }

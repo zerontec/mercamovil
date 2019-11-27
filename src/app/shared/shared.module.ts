@@ -7,7 +7,10 @@ import { DataTableModule } from 'angular-4-data-table';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { CustomFormsModule } from 'ng2-validation';
-import { UserperfComponent} from './components/userperf/userperf.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { UserperfComponent} from '../core/components/profile/userperf/userperf.component';
 import { ListOrderViewComponent } from './components/list-order-view/list-order-view.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
@@ -19,11 +22,17 @@ import { ProductService } from './services/product.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
 import { PayService} from './services/pay.service';
+
 import { SliderComponent } from './components/slider/slider.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrService } from './services/toastr.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {FlashMessagesService} from 'angular2-flash-messages';
+import {DataService} from './services/data.service';
+import { FilterPipe } from './pipes/filter.pipe';
+import { InfoPagesService } from './services/info-pages.service';
+
+
 
 @NgModule({
   imports: [
@@ -37,7 +46,8 @@ import {FlashMessagesService} from 'angular2-flash-messages';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     HttpClientModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    BrowserAnimationsModule
 
 
   ],
@@ -46,7 +56,8 @@ import {FlashMessagesService} from 'angular2-flash-messages';
     ProductQuantityComponent,
     ListOrderViewComponent,
     UserperfComponent,
-    SliderComponent
+    SliderComponent,
+    FilterPipe
   ],
   providers: [
     AuthService,
@@ -58,7 +69,11 @@ import {FlashMessagesService} from 'angular2-flash-messages';
     OrderService,
     PayService,
     ToastrService,
-    FlashMessagesService
+    FlashMessagesService,
+    DataService,
+    InfoPagesService
+
+
   ],
   exports : [
     CommonModule,

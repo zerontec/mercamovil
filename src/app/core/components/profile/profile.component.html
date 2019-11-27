@@ -4,16 +4,32 @@
       <div class="col-lg-9 mx-auto">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <app-userperf> </app-userperf>
-          <app-menu-b></app-menu-b>
+            <div *ngIf="appUser; else notLoggerUser" class="card account-left">
+              <div class="user-profile-header">
+                  <img src="{{appUser.foto}}" class="rounded-circle">
+                 <h5 class="mb-1 text-secondary"><strong>Hola</strong> {{appUser.name || appUser.email}}</h5>
+                 <p> +91 8568079956</p>
+              </div>
+              <div class="list-group">
+  
+                <a [routerLink]="['detalle'] "class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i> Datos Perfil</a>
+                <a [routerLink]="['deseos']" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-heart-outline"></i>  Datos para _Pagos </a>
+                <a [routerLink]="['ordenes']" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-format-list-bulleted"></i>  Mis Ordenes de Compra  </a> 
+                <a (click)="logout()" [routerLink]="['/home']" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-lock"></i>  Logout</a> 
+              
+              </div>
+            </div>
           </div>
+       
           <div class="col-md-8">
-            <app-direc-user></app-direc-user>
+           
+          
+            <router-outlet></router-outlet>
           </div>
-
-
+          </div>
+              
         </div>
       </div>
-    </div>
-  </div>
+   </div>
+         
 </section>
