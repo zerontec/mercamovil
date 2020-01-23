@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, 
     private router: Router,
-    private toast: ToastrService,
+    
     private route: ActivatedRoute,
     private flashMensaje: FlashMessagesService) { }
 
@@ -41,13 +41,13 @@ export class LoginComponent implements OnInit {
 
   Login(form: NgForm) {
 
-    if (  form.invalid ) { return; }
+  
 
     this.authService.login(this.appUser.email, this.appUser.password)
     .then( (res) => {
       this.flashMensaje.show('Usuario logado correctamente.',
       {cssClass: 'alert-success', timeout: 4000});
-      this.router.navigate(['/perfil']);
+      this.router.navigate(['/Productos']);
     }).catch((err) => {
       this.flashMensaje.show(err.message,
       {cssClass: 'alert-danger', timeout: 4000});
@@ -62,13 +62,13 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit( form: NgForm ){
-    if ( form.invalid ) { return; }
+    // if ( form.invalid ) { return; }
 
   this.authService.signupUser(this.appUser.email, this.appUser.password)
   .then((res) => {
   this.flashMensaje.show('Usuario Registrado Correctamente.',
   {cssClass: 'alert-success', timeout: 4000});
-  this.router.navigate(['/perfil']);
+  this.router.navigate(['/Productos']);
 
   }).catch((err) => {
     this.flashMensaje.show(err.messages,

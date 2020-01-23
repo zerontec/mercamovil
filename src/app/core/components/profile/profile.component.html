@@ -6,30 +6,37 @@
           <div class="col-md-4">
             <div *ngIf="appUser; else notLoggerUser" class="card account-left">
               <div class="user-profile-header">
-                  <img src="{{appUser.foto}}" class="rounded-circle">
-                 <h5 class="mb-1 text-secondary"><strong>Hola</strong> {{appUser.name || appUser.email}}</h5>
-                 <p> +91 8568079956</p>
+                <img src="{{appUser.foto}}" class="rounded-circle">
+                <h5 class="mb-1 text-secondary"><strong>Hola</strong> {{appUser.name || appUser.email}}</h5>
+                <p> </p>
               </div>
               <div class="list-group">
-  
-                <a [routerLink]="['detalle'] "class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-map-marker-circle"></i> Datos Perfil</a>
-                <a [routerLink]="['deseos']" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-heart-outline"></i>  Datos para _Pagos </a>
-                <a [routerLink]="['ordenes']" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-format-list-bulleted"></i>  Mis Ordenes de Compra  </a> 
-                <a (click)="logout()" [routerLink]="['/home']" class="list-group-item list-group-item-action"><i aria-hidden="true" class="mdi mdi-lock"></i>  Logout</a> 
-              
+
+                <a [routerLink]="['detalle']" class="list-group-item list-group-item-action"><i aria-hidden="true"
+                    class="mdi mdi-map-marker-circle"></i> Datos Perfil</a>
+                <a [routerLink]="['info']" class="list-group-item list-group-item-action"><i aria-hidden="true"
+                    class="mdi mdi-heart-outline"></i> Datos para _Pagos </a>
+                <a [routerLink]="['ordenes']" class="list-group-item list-group-item-action"><i aria-hidden="true"
+                    class="mdi mdi-format-list-bulleted"></i> Mis Ordenes de Compra </a>
+                <a [routerLink]="['carrito']" class="list-group-item list-group-item-action"><i
+                    class="mdi mdi-cart"></i> Mi Carrito <small
+                    class="cart-value">{{(totalCart$| async)?.totalItemCount}}</small></a>
+                <a (click)="logout()" [routerLink]="['/home']" class="list-group-item list-group-item-action"><i
+                    aria-hidden="true" class="mdi mdi-lock"></i> Logout</a>
+
               </div>
             </div>
           </div>
-       
+
           <div class="col-md-8">
-           
-          
+            <h1></h1>
+
             <router-outlet></router-outlet>
           </div>
-          </div>
-              
         </div>
+
       </div>
-   </div>
-         
+    </div>
+  </div>
+
 </section>

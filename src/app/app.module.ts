@@ -15,6 +15,9 @@ import { ProductsComponent } from './shopping/components/products/products.compo
 import {ToastrService} from './shared/services/toastr.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {FlashMessagesService} from 'angular2-flash-messages';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import {FlashMessagesService} from 'angular2-flash-messages';
     ShoppingModule,
     FlashMessagesModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot([
       { path: '', component: ProductsComponent }
     ])

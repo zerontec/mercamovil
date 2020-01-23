@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+
 import {ToastrService} from './toastr.service';
 
 
@@ -24,7 +24,6 @@ private url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty';
 private apikey = 'AIzaSyAAMV8-pFHnxi6P8M2_7rlDF2BYw7jOJqk';
   userToken: string;
   
-
   constructor(private userService: UserService, 
     private afAuth: AngularFireAuth, 
     afDta: AngularFireDatabase,

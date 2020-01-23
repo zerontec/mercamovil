@@ -1,34 +1,41 @@
 <ng-container *ngIf="order$ | async as orders">
   <ng-container *ngIf="orders.length > 0; else noOrder">
-      <div class="card card-body account-right">
-          <div class="widget">
-             <div class="section-header">
-                <h5 class="heading-design-h5">
-                  Ordenes
-                </h5>
-             </div>
-             <div class="order-list-tabel-main table-responsive">
-                <table class="datatabel table table-striped table-bordered order-list-tabel" width="100%" cellspacing="0">
-      <thead>
-        <tr>
-          <th>Cliente</th>
-          <th>Fecha</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let order of orders">
-          <td>{{order.user.username}}</td>
-          <td>{{order.datePlaced | date}}</td>
-          <td><a [routerLink]="['/order-details', order.$key]">Ver Tu Orden</a></td>
-        </tr>
-      </tbody>
-    </table>
-             </div>
+    <div class="card card-body account-right">
+      <div class="widget">
+        <div class="section-header">
+          <h5 class="heading-design-h5">
+            Ordenes
+          </h5>
+        </div>
+        <div class="order-list-tabel-main table-responsive">
+          <table class="datatabel table table-striped table-bordered order-list-tabel" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <td>{{order.user.username}}</td>
+                <td>{{order.datePlaced | date}}</td>
+                <td><a [routerLink]="['/order-details', order.$key]">Ver Tu Orden</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          </div>
       </div>
-      
+
+    </div>
+
+    <ng-container *ngIf="appUser.isAdmin">
+      <a [routerLink]="['admin/orders',item.$key]">Cambiar Estado</a>
+
+    </ng-container>
+
+
   </ng-container>
   <ng-template #noOrder>No Tienes Ordenes Aun </ng-template>
 </ng-container>

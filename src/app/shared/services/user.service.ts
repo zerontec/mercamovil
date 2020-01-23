@@ -7,6 +7,10 @@ import * as firebase from 'firebase';
 @Injectable()
 export class UserService {
 
+  location = {
+    lat: null,
+    lon: null
+  };
 
 
   constructor(private db: AngularFireDatabase) { }
@@ -18,7 +22,6 @@ export class UserService {
       foto: user.photoURL,
 
 
-
     });
   }
 
@@ -26,5 +29,14 @@ export class UserService {
     return this.db.object('/user/' + uid) as Observable<IAppUser>;
 
   }
+
+
+setLocation( lat, lon){
+  this.location.lat = lat;
+  this.location.lon = lon;
+
+
+
+}
 
 }

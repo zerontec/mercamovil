@@ -6,6 +6,7 @@ import {IPay} from 'shared/models/pay';
 import { Router, ActivatedRoute } from '@angular/router';
 import {PayService} from 'shared/services/pay.service';
 import { AuthService } from 'shared/services/auth.service';
+import { IAppUser } from 'shared/models/app-user';
 @Component({
   selector: 'app-order-view',
   templateUrl: './order-view.component.html',
@@ -17,7 +18,7 @@ export class OrderViewComponent implements OnInit {
   id;
   disableBtn: boolean;
 
-
+  appUser: IAppUser = {} as IAppUser;
   orderId;
   order$: Observable<any>;
 
@@ -25,7 +26,7 @@ export class OrderViewComponent implements OnInit {
   userName: string;
   userSubscription: Subscription;
 
-
+estado = 'info';
 
 
 
@@ -38,9 +39,10 @@ export class OrderViewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.auth.appUser$.subscribe(user => this.appUser = user);
     this.orderId = this.route.snapshot.paramMap.get('id');
     this.order$ = this.orderService.getOrderById(this.orderId);
-    
+
     this.userSubscription = this.auth.user$
     .subscribe(user => {
       this.userId = user.uid;

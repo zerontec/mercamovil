@@ -1,0 +1,19 @@
+
+
+.acv {
+    background-color: rgb(155, 20, 20);  
+  }
+  .acv a :hover {
+    color: green;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    margin-right: 20px;
+    background-color: #eee;
+    padding: 15px;
+  }
+
+  .list-group-item-action:focus,.list-group-item-action:hover{color:#fff;text-decoration:none;background-color:#e96125}.list-group-item-action:active{color:#212529;background-color:#e96125}.list-group-item{position:relative;display:block;padding:.75rem 1.25rem;margin-bottom:-1px;background-color:#fff;border:1px solid rgba(0,0,0,.125)}

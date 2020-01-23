@@ -1,3 +1,146 @@
-<p>
-  como-pagar works!
-</p>
+<section class="faq-page section-padding">
+  <div class="container">
+     <div class="row">
+        <div class="col-lg-10 mx-auto">
+           <div class="row">
+              <div class="col-lg-6 col-md-6">
+                 <div class="card card-body">
+                    <div class="accordion" id="accordionExample">
+                       <div class="card mb-0">
+                          <div class="card-header parra" id="headingOne">
+                             <h6 class="mb-0" style="color: white;">
+                                <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="icofont icofont-question-square"></i>  ¿ Como Pagar ? 
+                                </a>
+                             </h6>
+                          </div>
+                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                             <div class="card-body ">
+                                Despues de Seleccionar los productos a comprar, ir a carrito verificar su compra y hacer click en el botón finalizar compra
+                                te llevara a un formulario donde dejaras los datos para entrega de la mercancia al lado derecho veras los datos para 
+                                pagar mediante transferencia, pago movil. realizas el pago e ingresa los datos que  solicita el fomulario 
+                                de acuerdo a tu medio de pago. al seleccionar "pagar" esta información sera validada e inmediatamente nos comunicaremos contigo
+                             </div>
+                          </div>
+                       </div>
+                       <div class="card mb-2 mt-2">
+                          <div class="card-header" id="headingTwo">
+                             <h6 class="mb-0 "  style="color: white;">
+                                <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <i class="icofont icofont-question-square"></i>  ¿Como y cuando recibo mi mercancia ? 
+                                </a>
+                             </h6>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                             <div class="card-body">
+                                Despues de que nuestro equipo recibe la información de pago y datos para envio, validará el pago según el medio 
+                                seleccionado por usted.inmediatamente nos pondremos en contacto con usted para validar
+                                persona y lugar de envio.
+                                Los productos seran enbalados y trasladado al lugar de envio en nuestro transporte.
+                             </div>
+                          </div>
+                       </div>
+                       <div class="card">
+                          <div class="card-header" id="headingThree">
+                             <h6 class="mb-0">
+                                <a href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                <i class="icofont icofont-question-square"></i>   ¿Como relizo algún reclamo o solicitud? 
+                                </a>
+                             </h6>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                             <div class="card-body">
+                               Si tienes algún reclamo queja o solicitud con respecto a su mercancia puede llamar a los numeros 0286-9740498 9712249 04249736104
+                               o bien escribir en nuestro chat en vivo alli un operador lo atendera inmediatamente,en caso de no encontrarse alguno en 
+                               linea puede dejar su mensaje 
+                             </div>
+                          </div>
+                          
+                       </div>
+                       <div class="card mb-0">
+                        <div class="card-header parra" id="headingFour">
+                           <h6 class="mb-0" style="color: white;">
+                              <a href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                              <i class="icofont icofont-question-square"></i>  ¿ Tiene algún tipo de Garantia la mercancia ? 
+                              </a>
+                           </h6>
+                        </div>
+                        <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordionExample">
+                           <div class="card-body ">
+                              La mercancia es revisada previamente antes de salir del establecimiento, de igual forma usted podra revisar al recibir la misma 
+                              de tener alguna queja o reclamo puede comunicarse con nosotros ver pregunta 
+                              <strong> ¿Como relizo algún reclamo o solicitud?</strong>
+                           </div>
+                        </div>
+                     </div>
+                       
+                    </div>
+                 </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                 <div class="card card-body">
+                    <div class="section-header">
+                       <h5 class="heading-design-h5">
+                          ¿Tienes algunas Pregunta?
+                       </h5>
+                    </div>
+                    <form>
+                       <div class="row">
+                          <div class="col-sm-12">
+                             <div class="form-group">
+                                <label for="nombre" class="control-label">Nombre<span class="required">*</span></label>
+                                <input type="text"
+                                 name="nombre" 
+                                 ngModel #nombre="ngModel"
+                                 for="nombre" 
+                                 class="form-control" 
+                                 minlength="3" 
+                                 required>
+                                 <div class="alert alert-danger" 
+                                 *ngIf="nombre.touched && nombre.invalid">
+                                 <div *ngIf="nombre.errors.required">Nombre Requerido</div>
+                                 <div *ngIf="nombre.errors.minlength">Minimo {{nombre.errors.minlength.requiredLength}}caracteres</div>
+      </div>
+                            
+                            
+                              </div>
+                           
+            
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-sm-6">
+                             <div class="form-group">
+                                <label class="control-label">Email  <span class="required">*</span></label>
+                                <input class="form-control border-form-control " value="" placeholder="ejemplo@gmail.com" type="email">
+                             </div>
+                          </div>
+                          <div class="col-sm-6">
+                             <div class="form-group">
+                                <label class="control-label">Telefono <span class="required">*</span></label>
+                                <input class="form-control border-form-control" value="" placeholder="Telefono" type="number">
+                             </div>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-sm-12">
+                             <div class="form-group">
+                                <label class="control-label">Pregunta<span class="required">*</span></label>
+                                <textarea class="form-control border-form-control"></textarea>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-sm-12 text-right">
+                             <button type="button" class="btn btn-danger btn-lg"> Cencel </button>
+                             <button type="button" class="btn btn-success btn-lg"> Enviar </button>
+                          </div>
+                       </div>
+                    </form>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>

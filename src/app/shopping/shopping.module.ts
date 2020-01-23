@@ -4,6 +4,7 @@ import { AuthGuardService } from 'shared/services/auth-guard.service';
 import { SharedModule } from 'shared/shared.module';
 
 
+
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderSuccssComponent } from './components/order-succss/order-succss.component';
@@ -23,6 +24,7 @@ import { AuthService } from 'shared/services/auth.service';
 @NgModule({
   imports: [
     SharedModule,
+    
 
 
     RouterModule.forChild([

@@ -10,20 +10,38 @@
     <form (ngSubmit)="Login( f )" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="email">Email</label>
-        <input #email="ngModel" [(ngModel)]="appUser.email" name="email" type="text" class="form-control" id="email"
-          required>
+        <input #email="ngModel" 
+        [(ngModel)]="appUser.email" 
+        name="email" 
+        type="text" 
+        class="form-control" id="email"
+        required>
+          <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+            <div *ngIf="email.errors.required">Email es Requerido .</div>
+           
+          </div>
 
       </div>
+  
 
       <div class="form-group">
-        <label for="pasword">password </label>
+        <label for="password">password </label>
         <div class="input-group">
           <span class="input-group-addon"></span>
-          <input [(ngModel)]="appUser.password" name="password" type="password" class="form-control" id="password"
-            minlength="6">
+          <input #password="ngModel"  
+          [(ngModel)]="appUser.password" 
+          name="password" 
+          type="password" 
+          class="form-control" id="password"
+          minlength="6">
         </div>
-
+      
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          <div *ngIf="password.errors.required">Password es Requerido .</div>
+         
+        </div>
       </div>
+     
 
       <div class="form-group">
 
@@ -49,72 +67,22 @@
   <label class="custom-control-label" for="ckb1">Recuerdame</label>
 </div>
 <p>No Tienes Cuenta ?
-  <a [routerLink]="[ '/registro' ]" style="color:dodgerblue">Registrate Aqui!</a>
+  <a    [routerLink]="[ '/registro' ]"  style="color:dodgerblue">Registro</a>
 </p>
 
-
-
-
-
-<div class="modal " id="createUserForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog cascading-modal" role="document">
-
-    <div class="modal-content">
-
-      <div class="modal-header light-blue darken-3 white-text">
-        <h4 class="title">
-          <i class="fa fa-user-plus"></i> Registrate</h4>
-        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onSubmit( f )" #f="ngForm">
-          <div class="alert alert-danger" role="alert" *ngIf="errorInUserCreate">
-            {{errorMessage.message}}
-          </div>
-
-
-          <div class="form-group form-sm">
-
-            <label for="email">Tu Email</label>
-            <input mdbActive type="email" id="email" class="form-control" name="email" [(ngModel)]="appUser.email"
-              placeholder="Enter email" mdbInputValidate [email]="true" autocomplete="email" required>
-          </div>
-          <div class="form-group form-sm">
-            <label>Tu Contraseña</label>
-            <input type="password" class="form-control" [(ngModel)]="appUser.password" id="password" minlength="6"
-              placeholder="********">
-          </div>
-          <div class="form-group form-sm">
-            <label>Confirmar Contraseña</label>
-            <input type="password" class="form-control" placeholder="********">
-          </div>
-          <div class="text-center mt-2">
-            <button type="submit" class="btn btn-lg btn-secondary btn-block" [disabled]="f.invalid"
-              data-backdrop="false">Crear Cuenta
-              <i class="fa fa-sign-in ml-1"></i>
-            </button>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck2">
-              <label class="custom-control-label" for="customCheck2">Estoy de Acuerdo <a href="#">Terminos y
-                  Condiciones</a></label>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!--final modal body-->
-    </div>
-
-  </div>
-</div>
 </div>
 
-
-
 </div>
-
-
-
-
 </div>
+<hr>
+  
+
+
+
+
+
+
+
+
+
+

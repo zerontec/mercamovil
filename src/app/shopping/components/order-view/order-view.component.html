@@ -20,12 +20,12 @@
                 <div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item" *ngFor="let item of order.items">
-                      {{item.product.title}} x {{item.qty}} ({{item.price | currency:'INR':true}})
-                      <div class="float-right">{{item.totalPrice | currency:'INR':true}}</div>
+                      {{item.product.title}} x {{item.qty}} ({{item.price }})
+                      <div class="float-right"> Bs.{{item.totalPrice}}</div>
                     </li>
                     <li class="list-group-item">
                         <span class="font-weight-bold">Total: </span>
-                        <div class="float-right">{{order.netPrice | currency:'INR':true}}</div>
+                        <div class="float-right">Bs.{{order.netPrice }}</div>
                     </li>
                   </ul>
                 </div>
@@ -39,6 +39,20 @@
                     <li class="list-group-item"> Nro de Telefono : {{order.shipping.ndt}}</li>
                     
                     
+                    
+                  </ul>
+                </div>
+              </li>
+              <li class="list-group-item"><span class="font-weight-bold">Datos de Pago :</span>
+                <div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> Banco: {{order.shipping.bank}}</li>
+                    <li class="list-group-item">Bs : {{order.shipping.monto}}</li>
+                    <li class="list-group-item"> Nro de Referencia  : {{order.shipping.ndr}}</li>
+                    <li class="list-group-item"> Nro de Telefono  pagador: {{order.shipping.telf}}</li>
+                    
+                    
+                    
                   </ul>
                 </div>
               </li>
@@ -46,7 +60,55 @@
           </div>
           
         </div>
-      </ng-container>
+
+<!--     
+        <ng-container *ngIf="appUser.isAdmin">
+          <button type="button" (click)="estado='success'" class="btn btn-outline-primary">Cambiar Estado</button>
+        </ng-container>
+  
+  
+  <div [ngSwitch]="estado">
+  
+    <div *ngSwitchCase="'success'">
+    
+    </div>
+    <div *ngSwitchCase="info">
+    
+    </div>
+    <div *ngSwitchCase="warning">
+    
+    </div>
+    <div *ngSwitchDefault>info
+    </div>
+    
+    </div>
+    
+    
+    <div [ngSwitch]="estado">
+    <div *ngSwitchCase="'success'" class="alert arlet-success" role="alert">
+    <strong>Entregado</strong>El pedido se entrego con exito si desea borre el pedido
+    </div>
+    
+    <div *ngSwitchCase="info" class="alert arlet-info" role="info">
+      <strong>En Proceso</strong>El pedido esta en proceso de entrega 
+      </div>
+    
+      <div *ngSwitchCase="warning" class="alert arlet-warning" role="warning">
+        <strong>En conflicto</strong>El pedido esta en conflicto si gusta comuniquese con nosotros 
+        </div>
+    
+        <div *ngSwitchDefault  class="alert alert-alert" role="alert">
+          <strong>Recibido</strong>El pedido se recibio con exito  
+          
+          </div>
+    </div>
+
+-->
+
+      </ng-container> 
+
+     
+  
       <ng-template #notFound>
         Opps! No se Encontraron Detalles
       </ng-template>
@@ -55,4 +117,5 @@
   
 </div>
 
+<hr>
 

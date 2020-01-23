@@ -4,18 +4,20 @@
   <div class="container">
      <div class="row">
         <div class="col-md-12">
-           <a href="#"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Cart</a>
+           <a [routerLink]="[ '/home' ]"><strong><span class="mdi mdi-home"></span> Home</strong></a> <span class="mdi mdi-chevron-right"></span> <a href="#">Carrito</a>
         </div>
      </div>
   </div>
 </section>
-<h1>Mercado Movil</h1>
+
+<img src="/assets/imagenes/logoMercaF.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
 <ng-container *ngIf="(cart$ | async) as cart;">
   <ng-container *ngIf="cart.totalItemCount > 0; else noCart">
-      <p>Tienes {{cart.totalItemCount}} Productos en tu Carrito de Compras
-          <button class="btn btn-light btn-sm float-right" (click)="clearAll()"><strong>Vaciar Carrito</strong>
+      <h4>
+      Tienes {{cart.totalItemCount}} Productos en tu Carrito de Compras
+          <button class="btn btn-secondary btn-sm float-right" (click)="clearAll()"><strong>Vaciar Carrito</strong>
              </button>
-        </p>
+            </h4>
       <section class="cart-page section-padding">
           <div class="container">
              <div class="row">
@@ -42,13 +44,13 @@
                                      <h6><strong><span class="mmdi-approval"></span> Disponible en </strong> - 500 gm</h6>
                                   </td>
                                   <td class="availability in-stock"><span class="badge badge-success">In stock</span></td>
-                                  <td class="price"><span> {{item.price | currency:'VES': true}}</span></td>
+                                  <td class="price"><span> BS.{{item.price }}</span></td>
                                   <td class="qty">
                                      
                                         <product-quantity [product]="item" [shopping-cart]="cart" [msg]="null"></product-quantity>
                                      
                                   </td>
-                                  <td class="price"><span>{{item.totalPrice | currency:'VEF':'symbol'}}</span></td>
+                                  <td class="price"><span>BS.{{item.totalPrice}}</span></td>
                                   <td class="action">
                                      <a class="btn btn-sm btn-danger" data-original-title="Remove" href="#" title="" data-placement="top" data-toggle="tooltip"><i class="mdi mdi-close-circle-outline"></i></a>
                                   </td>
@@ -60,12 +62,12 @@
                                
                                <tr>
                                   <td class="text-right" colspan="5"><strong>Total</strong></td>
-                                  <td class="text-danger" colspan="2"><strong>{{cart.totalPrice | currency:'INR':true}}</strong></td>
+                                  <td class="text-danger" colspan="2"><strong>BS.{{cart.totalPrice }}</strong></td>
                                </tr>
                             </tfoot>
                          </table>
                       </div>
-                      <a [routerLink]="['/checkout']"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Finalizar Compra  </span><span class="float-right"><strong>{{cart.totalPrice | currency:'INR':true}}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
+                      <a [routerLink]="['/checkout']"><button class="btn btn-secondary btn-lg btn-block text-left" type="button"><span class="float-left"><i class="mdi mdi-cart-outline"></i> Finalizar Compra  </span><span class="float-right"><strong>BS.{{cart.totalPrice }}</strong> <span class="mdi mdi-chevron-right"></span></span></button></a>
                    </div>
                    
                 </div>

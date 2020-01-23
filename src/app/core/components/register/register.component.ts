@@ -40,7 +40,7 @@ this.authService.signupUser(this.appUser.email, this.appUser.password)
 .then((res) => {
 this.flashMensaje.show('Usuario Registrado Correctamente.',
 {cssClass: 'alert-success', timeout: 4000});
-this.router.navigate(['/perfil']);
+this.router.navigate(['/Productos']);
 
 }).catch((err) => {
   this.flashMensaje.show(err.messages,

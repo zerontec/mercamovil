@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>C-137</title>
+  <title>MercaMovil</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,56 +33,61 @@
     <div>
       <!--This Loader HTML+CSS taken from https://codepen.io/pedox/pen/PwQezw -->
       <style>
-        .loading-bro {
-          margin: 50px auto;
-          width: 150px;
+        .splash {
+          position: absolute;
+          z-index: 2000;
+          background: white;
+          color: gray;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0
         }
-
-        #load {
-          width: 150px;
-          animation: loading 2s linear infinite;
+    
+        .splash-title {
+          text-align: center;
+          max-width: 500px;
+          margin: 15% auto;
+          padding: 20px
         }
-
-        #load #loading-inner {
-          stroke-dashoffset: 0;
-          stroke-dasharray: 300;
-          stroke-width: 10;
-          stroke-miterlimit: 10;
-          stroke-linecap: round;
-          animation: loading-circle 1s linear infinite;
-          stroke: #8e44ad;
-          fill: transparent;
+    
+        .splash-title h1 {
+          font-size: 26px
         }
-
-        @keyframes loading {
-          0% {
-            transform: rotate(0);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
+    
+        .color-line {
+          border-radius: 4px 4px 0 0
         }
-
-        @keyframes loading-circle {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: -600;
-          }
-        }
-
       </style>
 
-      <div class="loading-bro">
-        <svg id="load" x="0px" y="0px" viewBox="0 0 150 150">
-          <circle id="loading-inner" cx="75" cy="75" r="60" />
-        </svg>
-      </div>
+<script>
+  var global = global || window;
+  var Buffer = Buffer || [];
+  var process = process || {
+    env: {
+      DEBUG: undefined
+    },
+    version: []
+  };
 
+</script>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1976d2">
+
+   <!-- Show simple splash screen-->
+   <div class="splash">
+    <div class="color-line"></div>
+    <div class="splash-title">
+      <h1>Espere Porfavor</h1>
+      <img src="assets/imagenes/logoMercaF.png"   alt="">
+      <img src="./assets/imagenes/loader.svg" width="64" height="64" />
     </div>
+  </div>
 
   </app-root>
+
+
+  <noscript>Porfavor Activar JavaScript para continuar con la aplicación.</noscript>
 
   <!-- Bootstrap core JavaScript -->
   <script src="./assets/js/jquery.min.js"  async></script>

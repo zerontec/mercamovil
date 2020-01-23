@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #orderForm="ngForm" (ngSubmit)="save(orderForm.value)" novalidate>
+      <div class="form-group">
+        <label for="exito">Estado</label>
+        <input #exito="ngModel" [(ngModel)]="order.exito" name="exito" type="text" class="form-control" id="exito" >
+       
+      </div>
+
+    
+     <div class="form-group">
+        <button class="btn btn-primary" >Salvar</button>
+        <button type="button" (click)="delete()" class="btn btn-danger" *ngIf="id">Borrar</button>
+     </div>
+
+    </form>
+  </div>
+
+</div>

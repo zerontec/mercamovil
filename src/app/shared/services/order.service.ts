@@ -31,5 +31,13 @@ export class OrderService {
     return this.db.object('/order/' + orderId);
   }
 
+  updateById(orderId, order){
+
+    return this.db.object('/order/' + orderId).update(order);
+
+
+
+  }
+
 
 }
