@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IAppUser } from 'shared/models/app-user';
+import { AuthService } from 'shared/services/auth.service';
 
 @Component({
   selector: 'app-profile-dire',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileDireComponent implements OnInit {
 
-  constructor() { }
+  appUser: IAppUser = {} as IAppUser;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.appUser$.subscribe(user => this.appUser = user);
+
+
   }
 
 }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { RouterLinkActive } from '@angular/router';
-
+import {FlashMessagesService} from 'angular2-flash-messages';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private authservices: AuthService,
     private cartServices: ShoppingCartService,
+    private flashMensaje: FlashMessagesService
 
     ) { }
 
@@ -28,9 +29,15 @@ export class ProfileComponent implements OnInit {
      this.totalCart$ = await this.cartServices.getCart();
   }
 
-  logout(){
+  logout() {
+    this.authservices.logout()
 
-    this.authservices.logout();
-  }
+    .then(res => {
+      console.log(res);
+      this.flashMensaje.show('Hasta Pronto .',
+      {cssClass: 'alert-success', timeout: 4000});
+  });
+
+}
 
 }

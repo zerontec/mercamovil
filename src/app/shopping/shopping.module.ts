@@ -19,6 +19,8 @@ import { PayFormComponent } from './components/pay-form/pay-form.component';
 import { PaySucssComponent } from './components/pay-sucss/pay-sucss.component';
 import { MyPaysComponent } from './components/my-pays/my-pays.component';
 import { AuthService } from 'shared/services/auth.service';
+import { ProductdComponent } from './components/productd/productd.component';
+import { ModalsComponent } from 'shared/components/modals/modals.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { AuthService } from 'shared/services/auth.service';
     RouterModule.forChild([
     { path: 'carrito', component: ShopingCartComponent },
     { path: 'Productos', component: ProductsComponent },
+    {path:   'product-details/:key', component: ProductdComponent},
+    {path:   'product-detail/:key', component: ModalsComponent},
     { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
     { path: 'order-success/:id', component: OrderSuccssComponent, canActivate: [AuthGuardService] },
@@ -52,7 +56,8 @@ import { AuthService } from 'shared/services/auth.service';
     PagesViewComponent,
     PayFormComponent,
     PaySucssComponent,
-    MyPaysComponent
+    MyPaysComponent,
+    ProductdComponent
   ],
   exports: [
 

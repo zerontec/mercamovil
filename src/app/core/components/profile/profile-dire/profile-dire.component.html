@@ -14,13 +14,13 @@
             <div class="row">
                <div class="col-sm-6">
                   <div class="form-group">
-                     <label class="control-label">Mi Nombre  <span class="required">*</span></label>
-                     <input class="form-control border-form-control" value="" placeholder="Gurdeep" type="text">
+                     <label class="control-label">Nombre <span class="required">*</span></label>
+                     <input class="form-control border-form-control" value="" placeholder={{appUser.name}} type="text">
                   </div>
                </div>
                <div class="col-sm-6">
                   <div class="form-group">
-                     <label class="control-label">Apellido <span class="required">*</span></label>
+                     <label class="control-label"> <span class="required">*</span></label>
                      <input class="form-control border-form-control" value="" placeholder="Osahan" type="text">
                   </div>
                </div>
@@ -35,7 +35,7 @@
                <div class="col-sm-6">
                   <div class="form-group">
                      <label class="control-label">Email  <span class="required">*</span></label>
-                     <input class="form-control border-form-control " value="" placeholder="iamosahan@gmail.com" disabled="" type="email">
+                     <input class="form-control border-form-control " value="" placeholder={{appUser.email}} disabled="" type="email">
                   </div>
                </div>
             </div>

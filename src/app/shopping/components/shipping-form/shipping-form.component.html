@@ -48,8 +48,8 @@
 
     <h2>Registrar Pago</h2>
 
-    <button class="btn btn-primary" type="button" (click)="onToggle1()">Transferencia</button>
-    <button class="btn btn-primary" type="button" (click)="onToggle2()">Pago Movil</button>
+    <button *ngIf="!toggleFlag2" class="btn btn-primary" type="button" (click)="onToggle1()">Transferencia</button>
+    <button *ngIf="!toggleFlag1" class="btn btn-primary" type="button" (click)="onToggle2()">Pago Movil</button>
        
    <ng-template [ngIf]="toggleFlag1">
     <div class="form-group">

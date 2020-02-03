@@ -4,7 +4,7 @@ import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { IAppUser } from 'shared/models/app-user';
 import { AuthService } from 'shared/services/auth.service';
 import { Component, OnInit, Input} from '@angular/core';
-
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'bs-navbar',
@@ -20,7 +20,9 @@ export class BsNavbarComponent implements OnInit {
   @Input('cart') cart: ShoppingCart;
 
 
-  constructor(private cartService: ShoppingCartService, private authService: AuthService) { }
+  constructor(private cartService: ShoppingCartService, 
+    private authService: AuthService,
+    private flashMensaje: FlashMessagesService) { }
 
   async ngOnInit() {
     this.authService.appUser$.subscribe(user => this.appUser = user);
@@ -28,7 +30,14 @@ export class BsNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
-  }
+    this.authService.logout()
+
+    .then(res => {
+      console.log(res);
+      this.flashMensaje.show('Hasta Pronto .',
+      {cssClass: 'alert-success', timeout: 4000});
+  });
+
+}
 
 }

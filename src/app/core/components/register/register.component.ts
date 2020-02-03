@@ -21,10 +21,53 @@ export class RegisterComponent implements OnInit {
   recordarme = false;
   acuerdo= false;
 
+
+//*************** */
+
+selectedVal: string;
+responseMessage: string = '';
+responseMessageType: string = '';
+emailInput: string;
+passwordInput: string;
+isForgotPassword: boolean;
+userDetails: any;
+
+
+
+
   constructor(private authService: AuthService,
      private router:Router,
-     private flashMensaje: FlashMessagesService   ) { }
+     private flashMensaje: FlashMessagesService   ) { 
 
+this.selectedVal = 'login';
+this.isForgotPassword = false;
+     }
+
+
+
+     //metodo que muestra mensaje 
+
+    showMessage( type, msg){
+      this.responseMessageType = type;
+      this.responseMessage = msg;
+      setTimeout(( ) => {
+      this.responseMessage = '';
+      
+      }, 2000);
+      
+          }
+      
+      // Called on switching Login/ Register tabs
+      public onValChange(val: string) {
+        this.showMessage('', '');
+        this.selectedVal = val;
+      }
+      
+        // Check localStorage is having User Data
+        isUserLoggedIn() {
+          this.userDetails = this.authService.isUserLoggedIn();
+        }
+      
 
 
   ngOnInit() {
@@ -37,15 +80,31 @@ onSubmit( form: NgForm ){
 
 
 this.authService.signupUser(this.appUser.email, this.appUser.password)
-.then((res) => {
+.then(res => {
+
+
+  //envio verificacion de email 
+  this.authService.sendEmailVerification().then (res => {
+ console.log(res);
+    this.isForgotPassword= false;
+    this.showMessage('exitoso', 'Registro Exitoso porfavor Verifique su Email');
+    
+  }, err => {
+  this.showMessage('Error', err.message);
+  
+  });
+  
+  this.isUserLoggedIn();
+
 this.flashMensaje.show('Usuario Registrado Correctamente.',
 {cssClass: 'alert-success', timeout: 4000});
 this.router.navigate(['/Productos']);
-
+console.log(res);
 }).catch((err) => {
-  this.flashMensaje.show(err.messages,
-    {cssClass: 'alert-danger', timeouy: 4000});
+  this.flashMensaje.show(err.message,
+    {cssClass: 'alert-danger', timeout: 4000});
     this.router.navigate(['/registro']);
+
 });
 
 
@@ -55,6 +114,11 @@ this.router.navigate(['/Productos']);
   }
 
 }
+
+
+  
+
+
 
 
 }

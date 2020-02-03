@@ -16,16 +16,23 @@
 
 
     <div class="product-header">
-        <span class="badge badge-success">50% Descuento</span>
+        <!-- <span class="badge badge-success">50% Descuento</span> -->
       
         <span class="veg text-success mdi mdi-circle"></span>
+
+
+        
      </div>
 
-  <img *ngIf="product.imageUrl" class="img-fluid mb-3"  [src]="product.imageUrl" [alt]="product.title">
+  <img  *ngIf="product.imageUrl" class="img-fluid mb-3"  [src]="product.imageUrl" [alt]="product.title">
   <div class="product-body">
-    <h5>{{product.title}}</h5>
-    <h6><strong><span class="mdi mdi-approval"></span> Disponible</strong> - 500 gm</h6>
-    <p class="offer-price mb-0">BS. {{product.price }} <span class="regular-price">Bs.800.99</span></p>
+ 
+    <!-- <a [routerLink]="[ '/product-detail',product.$key ]">name</a>
+  <button class="btn btn-primary float-right mb-3 mt-5 mr-3" data-toggle="modal" data-target="#bd-example-modal " > New Book</button> -->
+  
+    <h5> {{product.title}} </h5>
+    <h6><strong><span class="mdi mdi-approval"></span> Disponible</strong> </h6>
+    <p class="offer-price mb-0">BS. {{product.price }} <span class="regular-price"></span></p>
   </div>
   <div *ngIf="showActions && shoppingCart" class="product-footer">
     <button *ngIf="!shoppingCart.itemsMap || shoppingCart?.getQty(product) === 0; else updateQty" (click)="addToCart()"type="button" class="btn btn-secondary btn-sm float-right"><i class="mdi mdi-cart-outline"></i>Agregar al Carrito </button>
@@ -36,6 +43,8 @@
 </div>
 </div>
 </div>
+
+
 
 
 

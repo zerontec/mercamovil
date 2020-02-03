@@ -28,7 +28,7 @@ export class OrderService {
   }
 
   getOrderById(orderId: string) {
-    return this.db.object('/order/' + orderId);
+    return this.db.object('/order/' + orderId)
   }
 
   updateById(orderId, order){

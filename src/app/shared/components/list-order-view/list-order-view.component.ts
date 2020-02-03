@@ -11,7 +11,7 @@ import { AuthService } from 'shared/services/auth.service';
 export class ListOrderViewComponent implements OnInit {
 
 
-  
+
   appUser: IAppUser = {} as IAppUser;
   @Input('order$') order$: Observable<any[]>;
   constructor( private authservices:AuthService) { }

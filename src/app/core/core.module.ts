@@ -13,7 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 
-import { ModalComponent } from './components/modal/modal.component';
+
 import { AboutComponent } from './components/about/about.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -73,7 +73,7 @@ import { NofoundComponent } from './components/nofound/nofound.component';
     LoginComponent,
     FooterComponent,
     HomeComponent,
-    ModalComponent,
+  
     AboutComponent,
     FaqComponent,
     ErrorComponent,
@@ -94,7 +94,7 @@ import { NofoundComponent } from './components/nofound/nofound.component';
     BsNavbarComponent,
     FooterComponent,
     HomeComponent,
-    ModalComponent,
+    
     RouterModule,
     MenuBComponent,
     PageErrorComponent

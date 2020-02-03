@@ -20,11 +20,48 @@ export class LoginComponent implements OnInit {
   public password: string ;
   recordarme = false;
 
+//*************** */
+  selectedVal: string;
+  responseMessage: string = '';
+  responseMessageType: string = ''
+  isForgotPassword: boolean;
+  userDetails: any;
+ 
+
+
+
   constructor(private authService: AuthService, 
     private router: Router,
-    
     private route: ActivatedRoute,
-    private flashMensaje: FlashMessagesService) { }
+    private flashMensaje: FlashMessagesService) { 
+
+this.selectedVal = 'login';
+this.isForgotPassword = false;
+    }
+
+    //metodo que muestra mensaje 
+
+    showMessage( type, msg){
+this.responseMessageType = type;
+this.responseMessage = msg;
+setTimeout(( ) => {
+this.responseMessage = '';
+
+}, 2000);
+
+    }
+
+// Called on switching Login/ Register tabs
+//para cambio de login a register misma ventana 
+public onValChange(val: string) {
+  this.showMessage('', '');
+  this.selectedVal = val;
+}
+
+  // Check localStorage is having User Data
+  isUserLoggedIn() {
+    this.appUser = this.authService.isUserLoggedIn();
+  }
 
 
 
@@ -40,8 +77,6 @@ export class LoginComponent implements OnInit {
 
 
   Login(form: NgForm) {
-
-  
 
     this.authService.login(this.appUser.email, this.appUser.password)
     .then( (res) => {
@@ -61,23 +96,40 @@ export class LoginComponent implements OnInit {
   }
 
 
-  onSubmit( form: NgForm ){
-    // if ( form.invalid ) { return; }
+forgotPassword(){
 
-  this.authService.signupUser(this.appUser.email, this.appUser.password)
-  .then((res) => {
-  this.flashMensaje.show('Usuario Registrado Correctamente.',
-  {cssClass: 'alert-success', timeout: 4000});
-  this.router.navigate(['/Productos']);
+this.authService.sendPasswordResetEmail(this.appUser.email)
+.then(res => {
 
-  }).catch((err) => {
-    this.flashMensaje.show(err.messages,
-      {cssClass: 'alert-danger', timeouy: 4000});
-      this.router.navigate(['/registro']);
-  });
+  console.log(res);
+  this.isForgotPassword = false;
+this.flashMensaje.show('Porfavor revise su email para Resetear Password')
 
+  this.showMessage(' error', ' porfavor revise su email');
+}, err => {
+  this.flashMensaje.show(err.messages,
+    {cssClass: 'alert-danger', timeouy: 4000});
+  this.showMessage( 'error', err.message);
+});
+}
+
+
+
+  //Inicio con redes sociales 
+
+  loginGoogle() {
+    this.authService.loginc(new firebase.auth.GoogleAuthProvider());
 
   }
+
+  loginFacebook() {
+    this.authService.doFacebookLogin(new firebase.auth.FacebookAuthProvider());
+  }
+
+}
+
+
+
 
     // PARA CUANDO LOGRE CONFIGURAR TOAST
     // .then((res) => {
@@ -95,24 +147,11 @@ export class LoginComponent implements OnInit {
     //   this.toast.error('Authentication Failed', 'Invalid Credentials, Please Check your credentials');
     // });
 
-    
+
     //this.router.navigateByUrl('/perfil');
 
     // tslint:disable-next-line:no-unused-expression
 
-   
-
-     
 
 
 
-  loginGoogle() {
-    this.authService.loginc(new firebase.auth.GoogleAuthProvider());
-  
-  }
-
-  loginFacebook() {
-    this.authService.loginc(new firebase.auth.FacebookAuthProvider());
-  }
-
-}

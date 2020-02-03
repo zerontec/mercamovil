@@ -31,6 +31,8 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 import {DataService} from './services/data.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { InfoPagesService } from './services/info-pages.service';
+import { ButtonSingleComponent } from './components/button-single/button-single.component';
+import { ModalsComponent } from './components/modals/modals.component';
 
 
 
@@ -57,7 +59,11 @@ import { InfoPagesService } from './services/info-pages.service';
     ListOrderViewComponent,
     UserperfComponent,
     SliderComponent,
-    FilterPipe
+    FilterPipe,
+    ButtonSingleComponent,
+    ModalsComponent,
+   
+ 
   ],
   providers: [
     AuthService,
@@ -87,7 +93,9 @@ import { InfoPagesService } from './services/info-pages.service';
     ProductQuantityComponent,
     ListOrderViewComponent,
     UserperfComponent,
-    SliderComponent
+    SliderComponent,
+    ButtonSingleComponent,
+    ModalsComponent
   ]
 })
 export class SharedModule { }
