@@ -19,7 +19,7 @@ export class OrderViewComponent implements OnInit {
   disableBtn: boolean;
 
   appUser: IAppUser = {} as IAppUser;
-  orderId;
+  orderId:string;
   order$: Observable<any>;
 
   userId: string;

@@ -27,8 +27,6 @@ export class RegisterComponent implements OnInit {
 selectedVal: string;
 responseMessage: string = '';
 responseMessageType: string = '';
-emailInput: string;
-passwordInput: string;
 isForgotPassword: boolean;
 userDetails: any;
 
@@ -62,12 +60,12 @@ this.isForgotPassword = false;
         this.showMessage('', '');
         this.selectedVal = val;
       }
-      
+
         // Check localStorage is having User Data
         isUserLoggedIn() {
           this.userDetails = this.authService.isUserLoggedIn();
         }
-      
+
 
 
   ngOnInit() {
@@ -77,23 +75,18 @@ this.isForgotPassword = false;
 
 onSubmit( form: NgForm ){
   if ( form.invalid ) { return; }
-
-
-this.authService.signupUser(this.appUser.email, this.appUser.password)
-.then(res => {
-
-
+  this.authService.signupUser(this.appUser.email, this.appUser.password)
+  .then(res => {
   //envio verificacion de email 
   this.authService.sendEmailVerification().then (res => {
  console.log(res);
     this.isForgotPassword= false;
     this.showMessage('exitoso', 'Registro Exitoso porfavor Verifique su Email');
-    
+
   }, err => {
   this.showMessage('Error', err.message);
-  
   });
-  
+
   this.isUserLoggedIn();
 
 this.flashMensaje.show('Usuario Registrado Correctamente.',
@@ -116,7 +109,16 @@ console.log(res);
 }
 
 
+sendVerificacion(){
+
+  this.authService.sendEmailVerification()
+  .then(() => {
   
+    this.router.navigate(['verificacion-email']);
+  
+    });
+  
+  }
 
 
 

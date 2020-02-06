@@ -24,12 +24,14 @@ private url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty';
 private apikey = 'AIzaSyAAMV8-pFHnxi6P8M2_7rlDF2BYw7jOJqk';
 
 userToken: string;
+  authState: any;
 
   constructor(private userService: UserService, 
     private afAuth: AngularFireAuth, 
     afDta: AngularFireDatabase,
     private http: HttpClient,
-    private toast: ToastrService) {
+    private toast: ToastrService,
+    ) {
     this.user$ = afAuth.authState;
   }
 
@@ -69,6 +71,13 @@ this.afAuth.auth.createUserWithEmailAndPassword(email, password )
 
 
 
+// ENVIAR VERIFICACION EMAIL
+
+async sendEmailVerification() {
+
+  return await this.afAuth.auth.currentUser.sendEmailVerification();
+
+  }
 
 
 //INICIO SESION EMAIL Y PASSWORD 
@@ -84,14 +93,6 @@ return await new Promise((resolve, reject)  => {
     });
   }
 
-
-// ENVIAR VERIFICACION EMAIL
-
-async sendEmailVerification() {
-
-return await this.afAuth.auth.currentUser.sendEmailVerification();
-
-}
 
 
 //ENVIAR PASSWORD RESET

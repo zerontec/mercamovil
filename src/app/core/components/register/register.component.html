@@ -17,25 +17,39 @@
                 <label for="email">Email</label>
                 <input #email="ngModel"  
                 [(ngModel)]="appUser.email" 
-                name="email" type="text" 
+                name="email" 
+                type="email" 
                 class="form-control" 
                 id="email" required>
-               
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <div *ngIf="email.errors.required">Email es Requerido .</div>
+                 
+                </div>
+      
               </div>
         
               <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <div class="input-group">
                   <span class="input-group-addon"></span>
-                  <input  [(ngModel)]="appUser.name" 
+                  <input  #name="ngModel" 
+                  [(ngModel)]="appUser.name" 
                   name="name" 
                   type="text" 
                   class="form-control" 
                   id="name" 
                   minlength="6"
-                  placeholder="nombre ">
+                  placeholder="nombre "
+                  required>
                 </div>
-                
+                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                  <div *ngIf="name.errors.required">Nombre es Requerido .</div>
+                   
+                  </div>
+                  <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                    <div *ngIf="name.errors.minlength">minimo 6 caracteres .</div>
+                     
+                    </div>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>

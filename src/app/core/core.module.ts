@@ -31,6 +31,7 @@ import { ProfileMyordersComponent } from './components/profile/profile-myorders/
 import { ComoPagarComponent } from './components/como-pagar/como-pagar.component';
 import { ProfileCarritoComponent } from './components/profile/profile-carrito/profile-carrito.component';
 import { NofoundComponent } from './components/nofound/nofound.component';
+import { VerifiEmailComponent } from './components/verifi-email/verifi-email.component';
 
 
 
@@ -46,12 +47,12 @@ import { NofoundComponent } from './components/nofound/nofound.component';
     RouterModule.forChild([
     
       { path: 'home', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
+      { path: 'login', component: LoginComponent},
       { path: 'registro', component: RegisterComponent },
       { path: 'about', component: AboutComponent },
       { path: 'como-pagar', component: ComoPagarComponent },
       { path: 'contacto', component: ContactComponent },
-
+      {path: 'verificacion-email', component: VerifiEmailComponent, canActivate: [AuthGuardService]},
 
 
       {
@@ -89,6 +90,7 @@ import { NofoundComponent } from './components/nofound/nofound.component';
     ComoPagarComponent,
     ProfileCarritoComponent,
     NofoundComponent,
+    VerifiEmailComponent,
   ],
   exports: [
     BsNavbarComponent,
