@@ -32,8 +32,7 @@ import { ModalsComponent } from 'shared/components/modals/modals.component';
     RouterModule.forChild([
     { path: 'carrito', component: ShopingCartComponent },
     { path: 'Productos', component: ProductsComponent },
-    {path:   'product-details/:key', component: ProductdComponent},
-    {path:   'product-detail/:key', component: ModalsComponent},
+    {path:   'product-detail/:key', component: ProductdComponent},
     { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGuardService] },
     { path: 'order-success/:id', component: OrderSuccssComponent, canActivate: [AuthGuardService] },

@@ -27,8 +27,10 @@
   <div class="col-md-9 col-sm-12">
     <div class="row" *ngIf="cart$ | async as cart">
       <ng-container *ngFor="let product of filteredProducts; let i = index">
-        <div class="col">
+        <div class="col" *ngIf="products">
+         
           <product-card [product]="product" [width]="20" [shopping-cart]="cart"></product-card>
+       
         </div>
         <div class="w-100" *ngIf="(i+1)%2 === 0"></div>
       </ng-container>
@@ -40,4 +42,4 @@
 </div>
  </section>
 
- 
+ <app-modals ></app-modals>

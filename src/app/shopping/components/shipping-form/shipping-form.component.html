@@ -4,9 +4,16 @@
 
     <div class="form-group">
       <label for="addressLine1">Direccion Se Detallista </label>
-      <input type="text" name="addressLine1" ngModel #addressLine1="ngModel" for="addressLine1" class="form-control" required>
+      <input type="text" name="addressLine1" ngModel #addressLine1="ngModel" for="addressLine1" class="form-control"  placeholder="Frente a.. al Lado de.." required>
       <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
        Linea 1 de Direccion es Requerida
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="addressLine2">Linea 2 Direccion</label>
+      <input type="text" name="addressLine2" ngModel #addressLine2="ngModel" for="addressLine2" class="form-control"  placeholder="mas detalles " required>
+      <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine1.invalid">
+       Linea 2 de Direccion es Requerida
       </div>
     </div>
 <h2>A Quien se lo Enviamos</h2>
@@ -26,7 +33,7 @@
       </div>
     </div>
     <div class="form-group">
-        <label for="ndt">Nro telefonico</label>
+        <label for="ndt">Nro Telefonico</label>
     
         <select class="form-control"   >
             <option value="0414">0414</option>
@@ -37,7 +44,7 @@
             <option value="0412">0286</option>
             </select>
             
-       <input class="form-control"  data-val="true"  name="ndt" ngModel #ndt="ngModel" for="ndt"  required placeholder="Nro de Telefono 7 digitos  " maxlength="7" minlength="7"  type="text" value="">
+       <input class="form-control"  data-val="true"  name="ndt" ngModel #ndt="ngModel" for="ndt"  required placeholder=" ejemplo 0414 5555555  " maxlength="7" minlength="7"  type="text" value="">
             
         <div class="alert alert-danger" *ngIf="ndt.touched && ndt.invalid">
           Nro de telefono es Requerido Ingrese solo numeros
@@ -107,8 +114,8 @@
       <input  type="tel" ngModel #telf="ngModel" name="telf" for="telf" class="form-control" required>
     </div>
     <div class="alert alert-danger" *ngIf="telf.touched && telf.invalid">
-        <div *ngIf="telf.errors.required">Nro de Referencia es Requerido .</div>
-        <div *ngIf="telf.errors.min"> deberian ser los ultimos 4 digitos.</div>
+        <div *ngIf="telf.errors.required">Nro de Telefono pagador  es Requerido .</div>
+        <div *ngIf="telf.errors.min"> Deberian ser los ultimos 4 digitos.</div>
       </div>
   </div>
     <div class="form-group">
@@ -132,24 +139,28 @@
         </div>
         <div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
             <div *ngIf="ndr.errors.required">Nro de Referencia es Requerido .</div>
-            <div *ngIf="ndr.errors.min"> deberian ser los ultimos 4 digitos.</div>
+            <div *ngIf="ndr.errors.min"> Deberian ser los ultimos 4 digitos.</div>
           </div>
     </div>
     <div class="form-group">
 <label for="fecha">Fecha</label>
 <div class="input-group">
   <span class="iput-group-addon"></span>
-  <input type="date" name="fecha" ngModel #fecha="ngModel" class="form-control" id="fecha" required >
+  <input type="date" name="fecha" ngModel #fecha="ngModel" 
+  class="form-control" 
+  id="fecha"
+   required >
 </div>
-<div class="alert alert-danger" *ngIf="ndr.touched && ndr.invalid">
-  <div *ngIf="fecha.errors.required">Nro de Referencia es Requerido .</div>
-  <div *ngIf="fecha.errors.min"> deberian ser los ultimos 4 digitos.</div>
+<div class="alert alert-danger" *ngIf="fecha.touched && fecha.invalid">
+  <div *ngIf="fecha.errors.required">Fecha es Requerida .</div>
+ 
 </div>
     </div>
   </ng-template>
   <hr>
     <div class="form-group">
+   
       <button class="btn btn-primary" [disabled]="checkOutForm.invalid || disableBtn">Pagar</button>
     </div>
-
+    <div class="loading" *ngIf= "showSpinner ">Cargando <img src="../../../../assets/imagenes/loader.svg"  alt=""> </div> 
   </form>

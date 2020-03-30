@@ -16,6 +16,8 @@ export class ProductdComponent implements OnInit {
   product: any;
   products: IProduct[] = [];
   cart$: Observable<ShoppingCart>;
+  cartService: any;
+
 
 
   constructor(private produS: ProductService,
@@ -23,12 +25,13 @@ export class ProductdComponent implements OnInit {
     private cartServices: ShoppingCartService,
   ) { }
 
-    ngOnInit() {
-    
+  async ngOnInit() {
+
     const productId = this.route.snapshot.params['key'];
     this.geDetails(productId);
 
-
+  
+ 
 
   }
 
@@ -40,5 +43,7 @@ export class ProductdComponent implements OnInit {
     });
 
   }
+
+
 
 }

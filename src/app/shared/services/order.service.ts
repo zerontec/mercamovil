@@ -1,9 +1,15 @@
 import { ShoppingCartService } from './shopping-cart.service';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { Order } from 'shared/models/order';
 
 @Injectable()
 export class OrderService {
+  [x: string]: any;
+
+  orders:FirebaseListObservable<Order[]> = null; //  list of objects
+  order: FirebaseObjectObservable<Order> = null; //   single object
+
 
   constructor(private db: AngularFireDatabase,
     private cartService: ShoppingCartService) { }
@@ -38,6 +44,12 @@ export class OrderService {
 
 
   }
+
+
+  deleteById(orderId) {
+    return this.db.object('/order/' + orderId).remove();
+  }
+
 
 
 }

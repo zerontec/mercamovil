@@ -5,7 +5,7 @@
             <div class="col-lg-12 mx-auto">
               <div class="row no-gutters">
                 <div class="col-md-12">
-                  
+                  <div class="loading" *ngIf= "showSpinner ">Cargando <img src="../../../../assets/imagenes/loader.svg"  alt=""> </div> 
                   <list-order-view [order$]="order$"></list-order-view>
          
                 </div>

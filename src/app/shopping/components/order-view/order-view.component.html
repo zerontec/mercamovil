@@ -56,6 +56,8 @@
                     <li class="list-group-item">Bs : {{order.shipping.monto}}</li>
                     <li class="list-group-item"> Nro de Referencia  : {{order.shipping.ndr}}</li>
                     <li class="list-group-item"> Nro de Telefono  pagador: {{order.shipping.telf}}</li>
+
+                    <li class="list-group-item"> Estado de la orden : {{order.estado}}</li>
                     
                     
                     
@@ -66,8 +68,31 @@
           </div>
           
         </div>
+        <button type="button" (click)="delete(orderId)" class="btn btn-danger" >Borrar</button>
+    
+<ng-container *ngIf="appUser.isAdmin">
+<!-- <form #OrderForm="ngForm" (ngSubmit)="save(OrderForm.value)"></form> -->
+  <!--   <div class="form-group">
+        <label for="estado">Estado</label>
+        <div class="input-group">
+          <span class="input-group-addon">Estado</span>
+          <input #estado="ngModel" 
+          [(ngModel)]="order.estado" 
+          name="estado" 
+          type="text" 
+          class="form-control" 
+          id="estado">
+        </div>
+        
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Salvar</button>
+        <button type="button" (click)="delete()" class="btn btn-danger" >Borrar</button>
+     </div> -->
 
-<!--     
+</ng-container>
+
+<!-- 
         <ng-container *ngIf="appUser.isAdmin">
           <button type="button" (click)="estado='success'" class="btn btn-outline-primary">Cambiar Estado</button>
         </ng-container>

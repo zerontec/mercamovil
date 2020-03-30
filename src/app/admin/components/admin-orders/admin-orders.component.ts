@@ -10,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class AdminOrdersComponent implements OnInit {
 
   order$: Observable<any[]>;
+  showSpinner: boolean = true;
   constructor(private orderService: OrderService) { }
+
 
   ngOnInit() {
     this.order$ = this.orderService.getAllOrders();
+    this.order$.subscribe(() => this.showSpinner = false);
+
+
   }
 
 }

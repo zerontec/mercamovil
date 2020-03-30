@@ -13,7 +13,7 @@ export class ProfileMyordersComponent implements OnInit {
   order$: Observable<any[]>;
   userper$: Observable<any>;
   appUser: IAppUser = {} as IAppUser;
-
+  showSpinner: boolean = true;
   
   constructor( private auth: AuthService,
                 private orderservice: OrderService,
@@ -24,6 +24,7 @@ export class ProfileMyordersComponent implements OnInit {
     this.authservices.appUser$.subscribe(user => this.appUser = user);
     this.order$ = this.auth.user$
     .switchMap(user => this.orderservice.getOrderByUser(user.uid));
+    this.order$.subscribe(() => this.showSpinner = false);
   }
 logout() {
 

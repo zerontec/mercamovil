@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from 'shared/models/product';
 import { ProductService } from 'shared/services/product.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,16 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 export class ModalsComponent implements OnInit {
 
 
-  product: any;
+
   products: IProduct[] = [];
-  
+
+  productId: string;
+  product$: any;
+  product: any;
+
   constructor( private produS: ProductService,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     const productId = this.route.snapshot.params['key'];
     this.geDetails(productId);
-
 
 
   }
@@ -31,5 +34,7 @@ export class ModalsComponent implements OnInit {
 
       this.product = product;
     });
-  }
+
+ 
+}
 }

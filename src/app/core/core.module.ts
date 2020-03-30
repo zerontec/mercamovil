@@ -35,6 +35,7 @@ import { VerifiEmailComponent } from './components/verifi-email/verifi-email.com
 
 
 
+
 @NgModule({
   imports: [
     SharedModule,
@@ -96,7 +97,6 @@ import { VerifiEmailComponent } from './components/verifi-email/verifi-email.com
     BsNavbarComponent,
     FooterComponent,
     HomeComponent,
-    
     RouterModule,
     MenuBComponent,
     PageErrorComponent

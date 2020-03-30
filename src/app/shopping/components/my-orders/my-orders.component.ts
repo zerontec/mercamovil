@@ -14,22 +14,23 @@ export class MyOrdersComponent implements OnInit {
   order$: Observable<any[]>;
   userper$: Observable<any>;
   appUser: IAppUser = {} as IAppUser;
-
+  showSpinner: boolean = true;
+  id: any;
   constructor(
     private auth: AuthService,
     private orderService: OrderService,
-    private authservices:AuthService) { }
+    private authservices: AuthService) { }
 
   ngOnInit() {
     this.authservices.appUser$.subscribe(user => this.appUser = user);
     this.order$ = this.auth.user$
       .switchMap(user => this.orderService.getOrderByUser(user.uid));
+      this.order$.subscribe(() => this.showSpinner = false);
   }
 
+ 
 
 
 
-
-  
 
 }

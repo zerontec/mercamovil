@@ -11,6 +11,7 @@ export class ShoppingCartService {
 
   constructor(private db: AngularFireDatabase) { }
 
+ 
   async addToCart(product: IProduct) {
     this.updateItemQty(product, 1);
   }

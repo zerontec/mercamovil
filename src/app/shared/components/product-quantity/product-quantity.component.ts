@@ -19,7 +19,7 @@ export class ProductQuantityComponent implements OnInit {
   }
 
   addToCart() {
-    this.cartService.addToCart(this.product);
+    this.cartService.addToCart(this.product );
   }
 
   removeFromCart() {

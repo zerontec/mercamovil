@@ -1,4 +1,4 @@
-/* import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
@@ -30,4 +30,4 @@ export class ModalComponent implements OnInit {
   }
 
 }
- */
+ 

@@ -2,11 +2,13 @@ import { ShoppingCart } from './shopping-cart';
 export class Order {
 
   datePlaced: number;
+  id: string;
   items: any[];
   netPrice: number;
   user: {
     username: string,
-    userId: string
+    userId: string,
+
   };
 
   constructor(userId, userName,
@@ -29,7 +31,8 @@ export class Order {
 
     this.user = {
       userId: userId,
-      username: userName
+      username: userName,
+
     };
     this.netPrice = carts.totalPrice;
 

@@ -27,6 +27,7 @@ export class OrderViewComponent implements OnInit {
   userSubscription: Subscription;
 
 estado = 'info';
+  order: any;
 
 
 
@@ -40,7 +41,12 @@ estado = 'info';
 
   ngOnInit() {
     this.auth.appUser$.subscribe(user => this.appUser = user);
-    this.orderId = this.route.snapshot.paramMap.get('id');
+    this.orderId = this.route.snapshot.paramMap.get('id')
+    if (this.orderId){
+      this.orderService.getOrderById(this.orderId)
+      .take(1)
+      .subscribe(order => this.order = order );
+    }
     this.order$ = this.orderService.getOrderById(this.orderId);
 
     this.userSubscription = this.auth.user$
@@ -51,7 +57,7 @@ estado = 'info';
 
   }
 
-  save(datos) {
+  save1(datos) {
 
     let pay = new IPay(this.userId, this.userName, datos );
  
@@ -65,4 +71,21 @@ estado = 'info';
      });
      } 
 
+     save(order) {
+      if (this.id) this.orderService.updateById(this.id, this.id);
+  
+      this.router.navigate(['/admin/order']);
+    }
+  
+    delete() {
+      if (confirm('Esta seguro de Borrar esta Orden?')) {
+        if (this.orderId) {
+          this.orderService.deleteById(this.orderId);
+          this.router.navigate(['/myorders']);
+
+
+        }
+      }
+
+    }t
 }

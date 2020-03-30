@@ -77,12 +77,14 @@ public onValChange(val: string) {
 
 
   Login(form: NgForm) {
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
 
     this.authService.login(this.appUser.email, this.appUser.password)
     .then( (res) => {
       this.flashMensaje.show('Usuario logado correctamente.',
       {cssClass: 'alert-success', timeout: 4000});
-      this.router.navigate(['/Productos']);
+      // this.router.navigate(['/Productos']);
     }).catch((err) => {
       this.flashMensaje.show(err.message,
       {cssClass: 'alert-danger', timeout: 4000});

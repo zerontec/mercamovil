@@ -33,6 +33,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { InfoPagesService } from './services/info-pages.service';
 import { ButtonSingleComponent } from './components/button-single/button-single.component';
 import { ModalsComponent } from './components/modals/modals.component';
+import { SppinerComponent } from './components/sppiner/sppiner.component';
 
 
 
@@ -62,6 +63,7 @@ import { ModalsComponent } from './components/modals/modals.component';
     FilterPipe,
     ButtonSingleComponent,
     ModalsComponent,
+    SppinerComponent,
    
  
   ],
@@ -95,7 +97,8 @@ import { ModalsComponent } from './components/modals/modals.component';
     UserperfComponent,
     SliderComponent,
     ButtonSingleComponent,
-    ModalsComponent
+    ModalsComponent,
+    SppinerComponent
   ]
 })
 export class SharedModule { }

@@ -25,6 +25,7 @@ private apikey = 'AIzaSyAAMV8-pFHnxi6P8M2_7rlDF2BYw7jOJqk';
 
 userToken: string;
   authState: any;
+  subscribe: any;
 
   constructor(private userService: UserService, 
     private afAuth: AngularFireAuth, 
@@ -60,9 +61,12 @@ doFacebookLogin(provider: firebase.auth.FacebookAuthProvider) {
   //REGISTRO USURIO EMAIL PASSWORD
 
 async  signupUser(email: string, password: string) {
-return await  new Promise((resolve, reject) => {
+
+  return await  new Promise((resolve, reject) => {
 this.afAuth.auth.createUserWithEmailAndPassword(email, password )
 .then(userInfo => resolve (userInfo),
+
+
 
   err => reject (err));
 });
@@ -83,7 +87,6 @@ async sendEmailVerification() {
 //INICIO SESION EMAIL Y PASSWORD 
 
 async  login(email: string, password: string){
-
 return await new Promise((resolve, reject)  => {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
     .then(userInfo => resolve(userInfo) ,

@@ -20,6 +20,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
   toggleFlag1= false;
   toggleFlag2= false;
+  showSpinner: boolean = false;
+ 
 
   constructor(
     private auth: AuthService,
@@ -32,6 +34,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
         this.userId = user.uid;
         this.userName = user.displayName || user.email;
       });
+
+
   }
 
   ngOnDestroy() {
@@ -49,12 +53,12 @@ this.toggleFlag2 = (this.toggleFlag2 === true)? false : true;
 
   save(shipping) {
 
-    let order = new Order(this.userId, this.userName, shipping, this.carts);
-
+    let order = new Order(this.userId, this.userName,  shipping, this.carts);
     this.orderService.placeOrder(order)
-      .then(ref => {
+    .then(ref => {
         this.router.navigate(['order-success', ref.key]);
       })
+
       .catch(err => {
         this.disableBtn = false;
         console.log(err);

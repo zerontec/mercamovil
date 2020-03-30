@@ -10,21 +10,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
+   public disabled: boolean;
+
   @Input('product') product: IProduct;
   @Input('width') width = '20';
   @Input('show-actions') showActions = true;
   @Input('shopping-cart') shoppingCart: ShoppingCart;
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(private cartService: ShoppingCartService) {
+
+    this.disabled = true;
+   }
 
   ngOnInit() {
+
+
   }
 
   addToCart() {
     this.cartService.addToCart(this.product);
   }
 
+dispo(disponible: boolean) {
 
-  
+
+}
+
 
 }

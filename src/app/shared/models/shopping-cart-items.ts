@@ -7,6 +7,7 @@ export class ShoppingCartItem {
   imageUrl: string;
   price: number;
   qty: number;
+  stock: string;
 
   constructor(param?: Partial<ShoppingCartItem>) {
     Object.assign(this, param);
