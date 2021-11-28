@@ -2,6 +2,8 @@
 
 A Shopping Website build with Angular 4 and Firebase.
 
+https://mercamovil.web.app
+
 -Make several changes by making the frontend part more visible with several components
 -also add user image visibility
 
