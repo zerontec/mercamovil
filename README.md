@@ -22,7 +22,14 @@ https://mercamovil.web.app
 - Firebase Realtime Database *(Backend)*
 - Firebase authentication
 
+<h3>Shop</h3>
+<img src="https://firebasestorage.googleapis.com/v0/b/oshop-d5d87.appspot.com/o/tienda.png?alt=media&token=bf8497b2-779e-452e-87fd-9c7711eaa86d">
 
+<h3>View Profile</h3>
+<img src="https://firebasestorage.googleapis.com/v0/b/oshop-d5d87.appspot.com/o/FireShot%20Capture%20004%20-%20MercaMovil%20-%20mercamovil.web.app.png?alt=media&token=58df1e4c-557c-438e-b8bd-8f79129b93ac">
+
+<h3>shopping cart</h3>
+<img src="https://firebasestorage.googleapis.com/v0/b/oshop-d5d87.appspot.com/o/FireShot%20Capture%20005%20-%20MercaMovil%20-%20mercamovil.web.app.png?alt=media&token=aa57082d-41b3-4047-ad0c-d9d0b6247d79">
 ## To run the project locally:
 > To use your own Firebase Database change the api key from [`firebase-key`](./src/private/firebase-key.ts)
 
@@ -41,6 +48,7 @@ https://mercamovil.web.app
 ``
 
 ----------
+
 
 
 > *[The project is from an awesome [Angular 4 course](https://www.udemy.com/the-complete-angular-master-class/) (BY [MOSH HAMEDANI](https://github.com/mosh-hamedani)) which I've taken from Udemy.]*
